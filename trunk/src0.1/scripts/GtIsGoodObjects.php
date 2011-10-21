@@ -49,16 +49,23 @@ class GTIGSchedule {
   }
 }
 
+abstract class GTIGGridTypes {
+  public const CONSTRAINT = 0;
+  public const SCHEDULE   = 1;
+}
+
 class GTIGGrid {
 
   private $id;
   private $userId;
+  private $type; 	// GTIGGridTypes
   public $data;
   public $comments;
 
-  function __construct($id, $userId, $data, $comments) {
+  function __construct($id, $userId, $type, $data, $comments) {
     $this->id = $id;
     $this->userId = $userId;
+    $this->type = $type;
     $this->data = $data;
     $this->comments = $comments;
   }
@@ -73,6 +80,10 @@ class GTIGGrid {
 
   function getUser() {
     // TODO
+  }
+
+  function getScheduleType() {
+    return $this->type;
   }
 
   function saveToDb() {
