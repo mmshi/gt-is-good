@@ -1,5 +1,5 @@
 <?php
-
+//test
 include_once "GtIsGoodObjects.php";
 
 /**
