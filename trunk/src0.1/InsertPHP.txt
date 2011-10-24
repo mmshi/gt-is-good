@@ -1,0 +1,10 @@
+$sql = "INSERT INTO `gtisgood`.`user` (`userID`, `name`, `email`, `password`, `fromTSquare`) VALUES (\'".$userID."\', \'".$name."\', \'".$email."\', \'".$password."\', \'".$fromTSquare."\');";
+
+
+$sql = "INSERT INTO `gtisgood`.`grid` (`gridID`, `data`, `comments`) VALUES (\'".$gridID."\', \'".$data."\', \'".$comments."\');";
+
+
+$sql = "INSERT INTO `gtisgood`.`schedule` (`schID`, `startDate`, `endDate`, `createrID`, `alias`, `periodType`) VALUES (\'".$schID."\', \'".$startDate."\', \'".$endDate."\', \'".$createrID."\', \'".$alias."\', \'".$periodType."\');";
+
+
+$sql = "INSERT INTO `gtisgood`.`linktable` (`schID`, `gridID`, `userID`, `type`) VALUES (\'".$schID."\', \'".$gridID."\', \'".$userID."\', \'".$type."\');";
