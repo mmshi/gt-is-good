@@ -1,21 +1,21 @@
 <?php
 
 abstract class GTIGScheduleTypes {
-  public const DAY 	= 0;
-  public const HOUR 	= 1;
-  public const HALFHOUR = 2;
+  const DAY 	= '30min';
+  const HOUR 	= '1hour';
+  const HALFHOUR = '1day';
 }
 
 class GTIGSchedule {
 
   private $id;
-  private $creatorId
+  private $creatorId;
   public $startDate;
   public $endDate;
   public $alias;
   public $type;		// GTIGScheduleTypes
 
-  function __construct($id, $creatorId, $startDate, $endDate, $alias='NULL', $type=GTIGScheduleTypes->HALFHOUR){
+  function __construct($id, $creatorId, $startDate, $endDate, $alias='NULL', $type=GTIGScheduleTypes::HALFHOUR){
     $this->id = $id;
     $this->creatorId = $creatorId;
     $this->startDate = $startDate;
@@ -50,8 +50,8 @@ class GTIGSchedule {
 }
 
 abstract class GTIGGridTypes {
-  public const CONSTRAINT = 0;
-  public const SCHEDULE   = 1;
+  const CONSTRAINT = 'constraint';
+  const SCHEDULE   = 'userSchedule';
 }
 
 class GTIGGrid {
