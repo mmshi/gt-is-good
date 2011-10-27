@@ -1,9 +1,9 @@
 <?php
 
-abstract class GTIGScheduleTypes {
-  const DAY 	= '30min';
+class GTIGScheduleTypes {
+  const DAY 	= '1day';
   const HOUR 	= '1hour';
-  const HALFHOUR = '1day';
+  const HALFHOUR = '30min';
 }
 
 class GTIGSchedule {
