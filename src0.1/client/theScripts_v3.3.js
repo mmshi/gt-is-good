@@ -17,51 +17,56 @@ function applyTimeStatus(td){
 	var sId;
 
 	if(selectionStatus == 2){	
-			alert("sticky running");
-			alert("firstClick = " + firstClick);
 			if(firstClick){
-					alert("running firstClick");
 				//----do sticky section here	
-				sId = (td.id).split("_");
+				sId = (td.id).split("-");
 				r1 = sId[0];
 				c1 = sId[1];
+				td.style.border = "solid 1px #000";
+				td.style.fontWeight =  "bolder";
 				
-				//alert("r1 = " + r1);
 			}
 			if(!firstClick){
-									alert("running NOT_firstClick");
 				var r2;
 				var c2;
 				var cell;
+				var temp;
 				
 				sId = (td.id).split("-");
 				r2 = sId[0];
 				c2 = sId[1];
+				
+				cell = document.getElementById(""+r1+"-"+c1);
+				cell.style.border = "solid 0px #000";
+				cell.style.fontWeight =  "normal";
+				
+				//----this will allow revese slection (bottom right to top left)---JUST SWAPPING THE VARIABLES
+				if(r1>r2){
+					t = r2;
+					r2 = r1;
+					r1 = t;	
+				}
+				if(c1 > c2){
+					t = c2;
+					c2 = c1;
+					c1 = t;		
+				}
 	
-				alert("r1, c1  = " + r1 + ", " + c1);
-				alert("r2, c2  = " + r2 + ", " + c2);
 				for( var r = r1; r <= r2; r++){														//---------------------NEED TO FIX  TO WORK FOR A BACKWARD SELECTION!!!!
 					for( var c = c1; c <= c2; c++){
 						var str = ''+r+'-'+c;
-						alert("str " + str);
 						//cell = getElementById(''+r+'-'+c);	
-						cell = getElementById('0_0');	
-						alert("please get here");
-							alert("->-> (r,c) = " + r + ", " + c);
+						cell = document.getElementById(""+r+"-"+c);								//need 'document.' becuse the getElementId need to know where to get the elemebyById from.
 						if( timeStatus == 0){
-										alert("-----trying to set H");
 							setTimeStatusHorrible(cell);	
 						}
 						else if(timeStatus == 1){
-										alert("-----trying to set B");
 							setTimeStatusBad(cell);	
 						}
 						else if(timeStatus == 2){
-										alert("-----trying to set G");
 							setTimeStatusGood(cell);
 						}
 						else if(timeStatus == 3){
-										alert("-----trying to set A");
 							setTimeStatusAwesome(cell);	
 						}
 					}
@@ -70,7 +75,6 @@ function applyTimeStatus(td){
 	}
 	else{
 		//----do single selection here............DO NOT HAVE TO USE r1 and c1 vars
-			//alert("single running - timeStatus = " + timeStatus);
 			if( timeStatus == 0){
 				setTimeStatusHorrible(td);	
 			}
@@ -142,6 +146,11 @@ function mouseUp(){
 */
 
 function setSelectionStatus(intVal){
+	if((r1 > -1) && (c1>-1)){
+		var cell =document.getElementById(""+r1+"-"+c1);
+		cell.style.border = "solid 0px #000";
+		cell.style.fontWeight =  "normal";	
+	}
 	firstClick = true;
 	selectionStatus = intVal;	
 }
@@ -187,7 +196,6 @@ function toggleTimeStatus(td){
 	//-----ALL of this will just modify the part of the class name...
 	//...by changing the class name and having preset values for background colors in a .css file it will change the background color.			
 	//if(mousePressed){
-		alert("toggleTimeStatusRunning");
 		/*
 			if(td.className.indexOf("weekdayColor") > -1){
 				td.className = td.className.replace("weekdayColor", "timeGood");
