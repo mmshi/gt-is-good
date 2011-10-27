@@ -1,0 +1,126 @@
+/* CSS Document */
+
+/*defining classes of text*/
+.dateHeader {
+    font-weight: bold;
+    text-align: center;
+}
+
+.dateText {
+    font-size: 18px;
+    /* margin-top: 6px; */
+}
+
+		.dayText{
+			font-size: 14px;
+		}
+
+
+d{
+    font-size: 18px;	
+}	
+
+
+
+.timeGood{
+	/* background: none repeat scroll 0 0 #CCFF66; */
+	background:rgb(0,255,0);								/* background-color:  VS background: .......????? */	
+}
+
+.timeOK{
+	background:rgb(255,255,0);								/* background-color:  VS background: .......????? */	
+}
+
+
+.scrollBox{
+	overflow: auto; 
+	width: 557px; 
+	height: 300px; 
+    /*
+	border-left: 1px gray solid;
+	border-bottom: 1px gray solid; 
+    padding:0px; 
+	margin: 0px
+	*/
+}
+
+.timeText {
+    font-size: 14px;
+	text-align: center;
+}
+
+
+.t, .A, .G, .B, .H {
+    font-size: 14px;
+	text-align: center;	
+}
+	.A{
+		/* AWESOME day and time */		
+			/* background: none repeat scroll 0 0 #CCFF66; */
+		background:rgb(0,255,0);								/* background-color:  VS background: .......????? */	
+	}	
+	.G{
+		/* GOOD day and time */		
+			/* background: none repeat scroll 0 0 #CCFF66; */
+		background:rgb(255,255,0);								/* background-color:  VS background: .......????? */	
+	}	
+	.B{
+		/* BAD day and time */		
+			/* background: none repeat scroll 0 0 #CCFF66; */
+		background:rgb(255,150,0);								/* background-color:  VS background: .......????? */	
+	}	
+	.H{
+		/* HORRIBLE day and time */		
+			/* background: none repeat scroll 0 0 #CCFF66; */
+		background:rgb(255,0,0);								/* background-color:  VS background: .......????? */	
+	}
+
+
+/*
+td
+{
+	background-color:rgb(200,200,200);
+}
+*/
+
+.weekdayColor {
+	background-color:rgb(220,220,220);
+}
+
+.weekendColor {
+	background-color:rgb(200,200,200);
+}
+
+body {
+    font-family:sans-serif;
+}
+
+#bounds {
+    margin:4px;
+    background-color:#EFEFEF;
+    border-radius:4px;
+    border:1px solid #D0D0D0;
+    overflow:auto;
+    float:left;
+}
+
+#bounds label {
+    float:left;
+    width:5.0em;
+}
+
+#bounds label span {
+    text-align:center
+    padding:3px 0px;
+    display:block;
+}
+
+#bounds label input {
+    position:absolute;
+    top:-20px;
+}
+
+#bounds input:checked + span {
+    background-color:#404040;
+    color:#F7F7F7;
+}
