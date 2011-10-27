@@ -62,12 +62,12 @@ d{
 	.G{
 		/* GOOD day and time */		
 			/* background: none repeat scroll 0 0 #CCFF66; */
-		background:rgb(255,255,0);								/* background-color:  VS background: .......????? */	
+		background:rgb(175,255,0);								/* background-color:  VS background: .......????? */	
 	}	
 	.B{
 		/* BAD day and time */		
 			/* background: none repeat scroll 0 0 #CCFF66; */
-		background:rgb(255,150,0);								/* background-color:  VS background: .......????? */	
+		background:rgb(255,128,0);								/* background-color:  VS background: .......????? */	
 	}	
 	.H{
 		/* HORRIBLE day and time */		

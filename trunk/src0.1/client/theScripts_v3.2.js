@@ -22,11 +22,11 @@ function applyTimeStatus(td){
 			if(firstClick){
 					alert("running firstClick");
 				//----do sticky section here	
-				sId = (td.id).split("-");
+				sId = (td.id).split("_");
 				r1 = sId[0];
 				c1 = sId[1];
 				
-				alert("r1 = " + r1)
+				//alert("r1 = " + r1);
 			}
 			if(!firstClick){
 									alert("running NOT_firstClick");
@@ -37,25 +37,32 @@ function applyTimeStatus(td){
 				sId = (td.id).split("-");
 				r2 = sId[0];
 				c2 = sId[1];
-
-				for( r = r1; r < r2; r++){														//---------------------NEED TO FIX  TO WORK FOR A BACKWARD SELECTION!!!!
-					for( c = c1; c < c2; c++){
-						cell = getElementById(r+"-"+c);	
+	
+				alert("r1, c1  = " + r1 + ", " + c1);
+				alert("r2, c2  = " + r2 + ", " + c2);
+				for( var r = r1; r <= r2; r++){														//---------------------NEED TO FIX  TO WORK FOR A BACKWARD SELECTION!!!!
+					for( var c = c1; c <= c2; c++){
+						var str = ''+r+'-'+c;
+						alert("str " + str);
+						//cell = getElementById(''+r+'-'+c);	
+						cell = getElementById('0_0');	
+						alert("please get here");
+							alert("->-> (r,c) = " + r + ", " + c);
 						if( timeStatus == 0){
-										alert("trying to set H");
-							setTimeStatusHorrible(td);	
+										alert("-----trying to set H");
+							setTimeStatusHorrible(cell);	
 						}
 						else if(timeStatus == 1){
-										alert("trying to set B");
-							setTimeStatusBad(td);	
+										alert("-----trying to set B");
+							setTimeStatusBad(cell);	
 						}
 						else if(timeStatus == 2){
-										alert("trying to set G");
-							setTimeStatusGood(td);
+										alert("-----trying to set G");
+							setTimeStatusGood(cell);
 						}
 						else if(timeStatus == 3){
-										alert("trying to set A");
-							setTimeStatusAwesome(td);	
+										alert("-----trying to set A");
+							setTimeStatusAwesome(cell);	
 						}
 					}
 				}
@@ -63,7 +70,7 @@ function applyTimeStatus(td){
 	}
 	else{
 		//----do single selection here............DO NOT HAVE TO USE r1 and c1 vars
-			alert("single running - timeStatus = " + timeStatus);
+			//alert("single running - timeStatus = " + timeStatus);
 			if( timeStatus == 0){
 				setTimeStatusHorrible(td);	
 			}
@@ -77,7 +84,7 @@ function applyTimeStatus(td){
 				setTimeStatusAwesome(td);	
 			}
 	}
-	firstClick = !firstClick;
+	firstClick = !firstClick; 
 }
 
 
