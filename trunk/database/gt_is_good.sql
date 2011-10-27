@@ -19,7 +19,7 @@ CREATE TABLE  `gtisgood`.`schedule` (
   `alias` VARCHAR( 255 ) NOT NULL,
   `periodType` ENUM(  '30min',  '1hour',  '1day' ) NOT NULL,
   PRIMARY KEY ( `schID` ),
-  FOREIGN KEY ( `createrID` ) REFERENCES user(userID)
+  INDEX ( `createrID` )
 );
 
 CREATE TABLE `gtisgood`.`grid`
