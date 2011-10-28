@@ -20,18 +20,6 @@ d{
     font-size: 18px;	
 }	
 
-
-
-.timeGood{
-	/* background: none repeat scroll 0 0 #CCFF66; */
-	background:rgb(0,255,0);								/* background-color:  VS background: .......????? */	
-}
-
-.timeOK{
-	background:rgb(255,255,0);								/* background-color:  VS background: .......????? */	
-}
-
-
 .scrollBox{
 	overflow: auto; 
 	width: 557px; 
@@ -43,12 +31,6 @@ d{
 	margin: 0px
 	*/
 }
-
-.timeText {
-    font-size: 14px;
-	text-align: center;
-}
-
 
 .t, .A, .G, .B, .H {
     font-size: 14px;
