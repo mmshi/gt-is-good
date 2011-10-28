@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <title>Page Title</title>
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="wigm.css" />			<!-- this line ties the the css file 'theStyles.css' to this HTML file -->
+<script type="text/javascript" src="wigm.js" > </script>	
+
 </head>
 <body>
 <div data-role="page" id="home">
@@ -32,11 +37,23 @@
 -->
 
 <!-----------------START CALENDAR CODE-------------------------------->
-		<div id="bounds">
+		<!--<div id="bounds">	-->
+		<!--
 		    <label onclick = "setSelectionStatus(1);" ><span>Single</span></label>						<!-- with <label onclick...><input>...label will fire off the mouselcick event again so that the input can catch it -->
+			<!--
 		    <label onclick = "setSelectionStatus(2);">Sticky</label>
-		</div>
+			-->
+			<div data-role="fieldcontain">
+				<label for="onclick"></label>
+				<select name="slider" id="selectionStatusFlip" data-role="slider" data-theme="a">
+					<option value="sticky">Sticky</option>
+					<option value="single">Single</option>
+				</select> 
+			</div>
 
+		
+
+		<!--
 		<div id="bounds">
 		    <label onClick = "setTimeStatus(0);">BAD</label>
 		    <label onClick = "setTimeStatus(1);">Bad</label>
@@ -44,7 +61,26 @@
 		    <label onClick = "setTimeStatus(3);">GOOD</label>
 		</div>
 
-		<br/><br/>
+		-->
+
+		<br/>
+		<div >
+			<fieldset data-role="controlgroup" data-type="horizontal">
+				<legend></legend>
+					<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
+					<label for="radio-choice-1">BAD</label>
+
+					<input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
+					<label for="radio-choice-2">bad</label>
+
+					<input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3"  />
+					<label for="radio-choice-3">good</label>
+
+					<input type="radio" name="radio-choice-1" id="radio-choice-4" value="choice-4"  />
+					<label for="radio-choice-4">GOOD</label>
+			</fieldset>
+		</div>
+		<br/>
 
 		<table width = "540px">
 			<tbody>
