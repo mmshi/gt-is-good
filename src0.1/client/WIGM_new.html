@@ -50,29 +50,7 @@
 			</div>
 
 		
-        	
-            <p>The flip toggle switch is displayed like this:</p>
-            <div data-role="fieldcontain">
-                <label for="slider">Flip switch:</label>
-                <select name="slider" id="my-slider" data-role="slider">
-                    <option value="off">Off</option>
-                    <option value="on">On</option>
-                </select>
-            </div>
-            <div id="show-me" class="hidden">
-                <p>
-                    Bacon ipsum dolor sit amet bresaola velit laboris bacon eiusmod. Id ex short ribs, dolor dolore rump pork belly beef ad ullamco salami labore aute ut. Jowl et in do, fatback jerky salami reprehenderit irure laboris pork loin commodo qui eu. Chuck tri-tip cupidatat, turkey sunt in anim jerky pork belly exercitation bacon. Eu corned beef qui adipisicing, ground round veniam turkey chicken incididunt deserunt. Proident t-bone chuck, non excepteur biltong elit in anim minim swine short loin magna do. Sint enim nisi, minim nulla tongue ut incididunt ground round.
-                </p>  
-            </div>
-		<!--
-		<div id="bounds">
-		    <label onClick = "setTimeStatus(0);">BAD</label>
-		    <label onClick = "setTimeStatus(1);">Bad</label>
-			<label onClick = "setTimeStatus(2);">Good</label>
-		    <label onClick = "setTimeStatus(3);">GOOD</label>
-		</div>
-
-		-->
+        
 
 		<br/>
 		<div >
@@ -100,37 +78,37 @@
 		<table>
 			
 			    <tr>
-				<td class = "dateHeader weekendColor">
+				<td id = "d-0" class = "dateHeader weekendColor" onclick = "applyTimeStatusDay(this);">
 				    <div class = "dayText">Sun</div>
 				    <div class = "dateText">16</div>
 				    <div class = "dayText">OCT</div>
 				</td>
-				<td class = "dateHeader weekdayColor">
+				<td id = "d-1" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
 				    <div class = "dayText">Mon</div>
 				    <div class = "dateText">17</div>
 				    <div class = "dayText">OCT</div>
 				</td>
-				<td class = "dateHeader weekdayColor">
+				<td id = "d-2" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
 				    <div class = "dayText">Tue</div>
 				    <div class = "dateText">18</div>
 				    <div class = "dayText">OCT</div>
 				</td>
-				<td class = "dateHeader weekdayColor">
+				<td id = "d-3" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
 				    <div class = "dayText">Wed</div>
 				    <div class = "dateText">19</div>
 				    <div class = "dayText">OCT</div>
 				</td>
-				<td class = "dateHeader weekdayColor">
+				<td id = "d-4" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
 				    <div class = "dayText">Thu</div>
 				    <div class = "dateText">20</div>
 				    <div class = "dayText">OCT</div>
 				</td>
-				<td class = "dateHeader weekdayColor">
+				<td id = "d-5" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
 				    <div class = "dayText">Fri</div>
 				    <div class = "dateText">21</div>
 				    <div class = "dayText">OCT</div>
 				</td>
-				<td class = "dateHeader weekendColor">
+				<td id = "d-6" class = "dateHeader weekendColor" onclick = "applyTimeStatusDay(this);">
 				    <div class = "dayText">Sat</div>
 				    <div class = "dateText">22</div>
 				    <div class = "dayText">OCT</div>
@@ -322,6 +300,11 @@
 </div>
 
 <script type="text/javascript" src="wigm.js" > </script>
+<script type="text/javascript"> 
+
+setNumOfRows(6); //TODO get real num of rows from PHP
+
+</script>
 
 </body>
 </html>
