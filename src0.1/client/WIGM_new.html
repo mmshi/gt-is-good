@@ -39,8 +39,6 @@
 <!-----------------START CALENDAR CODE-------------------------------->
 		<!--<div id="bounds">	-->
 		<!--
-		    <label onclick = "setSelectionStatus(1);" ><span>Single</span></label>						<!-- with <label onclick...><input>...label will fire off the mouselcick event again so that the input can catch it -->
-			<!--
 		    <label onclick = "setSelectionStatus(2);">Sticky</label>
 			-->
 			<div data-role="fieldcontain">
@@ -52,6 +50,26 @@
 			</div>
 
 		
+        	
+            
+    <div data-role="content"> 
+        <div class="content-primary"> 
+            <p>The flip toggle switch is displayed like this:</p> 
+            <div data-role="fieldcontain"> 
+                <label for="slider">Flip switch:</label> 
+                <select name="slider" id="my-slider" data-role="slider"> 
+                    <option value="off">Off</option>
+                    <option value="on">On</option> 
+                </select> 
+            </div> 
+            <div id="show-me" class="hidden">
+                <p>
+                    Bacon ipsum dolor sit amet bresaola velit laboris bacon eiusmod. Id ex short ribs, dolor dolore rump pork belly beef ad ullamco salami labore aute ut. Jowl et in do, fatback jerky salami reprehenderit irure laboris pork loin commodo qui eu. Chuck tri-tip cupidatat, turkey sunt in anim jerky pork belly exercitation bacon. Eu corned beef qui adipisicing, ground round veniam turkey chicken incididunt deserunt. Proident t-bone chuck, non excepteur biltong elit in anim minim swine short loin magna do. Sint enim nisi, minim nulla tongue ut incididunt ground round.
+                </p>  
+            </div>
+        </div>
+    </div>
+
 
 		<!--
 		<div id="bounds">
@@ -68,22 +86,26 @@
 			<fieldset data-role="controlgroup" data-type="horizontal">
 				<legend></legend>
 					<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
-					<label for="radio-choice-1">BAD</label>
+					<label for="radio-choice-1">
+					<img src="images/horrible.png" width=15px height=15px /></label>
 
 					<input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
-					<label for="radio-choice-2">bad</label>
+					<label for="radio-choice-2">
+					<img src="images/bad.png" width=15px height=15px /></label>
 
 					<input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3"  />
-					<label for="radio-choice-3">good</label>
+					<label for="radio-choice-3">
+					<img src="images/good.png" width=15px height=15px /></label>
 
 					<input type="radio" name="radio-choice-1" id="radio-choice-4" value="choice-4"  />
-					<label for="radio-choice-4">GOOD</label>
+					<label for="radio-choice-4">
+					<img src="images/awesome.png" width=15px height=15px /></label>
 			</fieldset>
 		</div>
 		<br/>
 
-		<table width = "540px">
-			<tbody>
+		<table>
+			
 			    <tr>
 				<td class = "dateHeader weekendColor">
 				    <div class = "dayText">Sun</div>
@@ -121,32 +143,28 @@
 				    <div class = "dayText">OCT</div>
 				</td>
 			    </tr>
-			</tbody>
-		    </table>
-		
-		    <div class = "scrollBox" onmouseup = "mouseUp();" style="-moz-user-select: none; cursor: default;">
-			<table width = "540px"height = "400px">
+			
 			    <tr>
 				<td id = "0-0" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>12:00am</div>
+				    <div>12:00</div>
 				</td>
 				<td id = "0-1" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>12:00am</div>
+				    <div>12:00</div>
 				</td>
 				<td id = "0-2" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>12:00am</div>
+				    <div>12:00</div>
 				</td>
 				<td id = "0-3" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>12:00am</div>
+				    <div>12:00</div>
 				</td>
 				<td id = "0-4" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>12:00am</div>
+				    <div>12:00</div>
 				</td>
 				<td id = "0-5" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>12:00am</div>
+				    <div>12:00</div>
 				</td>
 				<td id = "0-6" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>12:00am</div>
+				    <div>12:00</div>
 				</td>
 			    </tr>
 			    <tr>
@@ -174,25 +192,25 @@
 			    </tr>    
 			    <tr>
 				<td id = "2-0" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>1:00am</div>
+				    <div>1:00</div>
 				</td>
 				<td id = "2-1" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>1:00am</div>
+				    <div>1:00</div>
 				</td>
 				<td id = "2-2" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>1:00am</div>
+				    <div>1:00</div>
 				</td>
 				<td id = "2-3" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>1:00am</div>
+				    <div>1:00</div>
 				</td>
 				<td id = "2-4" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>1:00am</div>
+				    <div>1:00</div>
 				</td>
 				<td id = "2-5" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>1:00am</div>
+				    <div>1:00</div>
 				</td>
 				<td id = "2-6" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>1:00am</div>
+				    <div>1:00</div>
 				</td>
 			    </tr>
 			    <tr>
@@ -220,25 +238,26 @@
 			    </tr> 
 			     <tr>
 				<td id = "4-0" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>2:00am</div>
+
+				    <div>2:00</div>
 				</td>
 				<td id = "4-1" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>2:00am</div>
+				    <div>2:00</div>
 				</td>
 				<td id = "4-2" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>2:00am</div>
+				    <div>2:00</div>
 				</td>
 				<td id = "4-3" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>2:00am</div>
+				    <div>2:00</div>
 				</td>
 				<td id = "4-4" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>2:00am</div>
+				    <div>2:00</div>
 				</td>
 				<td id = "4-5" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>2:00am</div>
+				    <div>2:00</div>
 				</td>
 				<td id = "4-6" class = "t" onclick = "applyTimeStatus(this);" >
-				    <div>2:00am</div>
+				    <div>2:00</div>
 				</td>
 			    </tr>
 			    <tr>
@@ -266,425 +285,10 @@
 			    </tr>  
 			    
 			    
+			  </tr>
 			    
-			    
-			    <tr>
-				<td class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown  = "mouseDown(this);">
-				    <div>3:00am</div>
-				</td>
-				<td class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>3:00am</div>
-				</td>
-				<td class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>3:00am</div>
-				</td>
-				<td class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>3:00am</div>
-				</td>
-				<td class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>3:00am</div>
-				</td>
-				<td class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>3:00am</div>
-				</td>
-				<td class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>3:00am</div>
-				</td>
-			    </tr>
-			    <tr>
-				<td class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown  = "mouseDown(this);">
-				    <div>3:30</div>
-				</td>
-				<td class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>3:30</div>
-				</td>
-				<td class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>3:30</div>
-				</td>
-				<td class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>3:30</div>
-				</td>
-				<td class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>3:30</div>
-				</td>
-				<td class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>3:30</div>
-				</td>
-				<td class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>3:30</div>
-				</td>
-			    </tr>
-			    <tr>
-				<td id = "d0t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown  = "mouseDown(this);">
-				    <div>4:00am</div>
-				</td>
-				<td id = "d1t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>4:00am</div>
-				</td>
-				<td id = "d2t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>4:00am</div>
-				</td>
-				<td id = "d3t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>4:00am</div>
-				</td>
-				<td id = "d4t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>4:00am</div>
-				</td>
-				<td id = "d5t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>4:00am</div>
-				</td>
-				<td id = "d6t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>4:00am</div>
-				</td>
-			    </tr>
-			    <tr>
-				<td id = "d0t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown  = "mouseDown(this);">
-				    <div>4:30</div>
-				</td>
-				<td id = "d1t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>4:30</div>
-				</td>
-				<td id = "d2t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>4:30</div>
-				</td>
-				<td id = "d3t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>4:30</div>
-				</td>
-				<td id = "d4t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>4:30</div>
-				</td>
-				<td id = "d5t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>4:30</div>
-				</td>
-				<td id = "d6t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>4:30</div>
-				</td>
-			    </tr>
-			    <tr>
-				<td id = "d0t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown  = "mouseDown(this);">
-				    <div>5:00am</div>
-				</td>
-				<td id = "d1t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>5:00am</div>
-				</td>
-				<td id = "d2t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>5:00am</div>
-				</td>
-				<td id = "d3t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>5:00am</div>
-				</td>
-				<td id = "d4t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>5:00am</div>
-				</td>
-				<td id = "d5t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>5:00am</div>
-				</td>
-				<td id = "d6t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>5:00am</div>
-				</td>
-			    </tr>
-			    <tr>
-				<td id = "d0t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown  = "mouseDown(this);">
-				    <div>5:30</div>
-				</td>
-				<td id = "d1t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>5:30</div>
-				</td>
-				<td id = "d2t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>5:30</div>
-				</td>
-				<td id = "d3t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>5:30</div>
-				</td>
-				<td id = "d4t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>5:30</div>
-				</td>
-				<td id = "d5t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>5:30</div>
-				</td>
-				<td id = "d6t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>5:30</div>
-				</td>
-			    </tr>
-			    <tr>
-				<td id = "d0t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown  = "mouseDown(this);">
-				    <div>6:00am</div>
-				</td>
-				<td id = "d1t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>6:00am</div>
-				</td>
-				<td id = "d2t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>6:00am</div>
-				</td>
-				<td id = "d3t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>6:00am</div>
-				</td>
-				<td id = "d4t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>6:00am</div>
-				</td>
-				<td id = "d5t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>6:00am</div>
-				</td>
-				<td id = "d6t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>6:00am</div>
-				</td>
-			    </tr>
-			    <tr>
-				<td id = "d0t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown  = "mouseDown(this);">
-				    <div>6:30</div>
-				</td>
-				<td id = "d1t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>6:30</div>
-				</td>
-				<td id = "d2t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>6:30</div>
-				</td>
-				<td id = "d3t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>6:30</div>
-				</td>
-				<td id = "d4t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>6:30</div>
-				</td>
-				<td id = "d5t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>6:30</div>
-				</td>
-				<td id = "d6t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>6:30</div>
-				</td>
-			    </tr>
-			    <tr>
-				<td id = "d0t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown  = "mouseDown(this);">
-				    <div>7:00am</div>
-				</td>
-				<td id = "d1t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>7:00am</div>
-				</td>
-				<td id = "d2t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>7:00am</div>
-				</td>
-				<td id = "d3t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>7:00am</div>
-				</td>
-				<td id = "d4t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>7:00am</div>
-				</td>
-				<td id = "d5t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>7:00am</div>
-				</td>
-				<td id = "d6t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>7:00am</div>
-				</td>
-			    </tr>
-			    <tr>
-				<td id = "d0t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown  = "mouseDown(this);">
-				    <div>7:30</div>
-				</td>
-				<td id = "d1t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>7:30</div>
-				</td>
-				<td id = "d2t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>7:30</div>
-				</td>
-				<td id = "d3t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>7:30</div>
-				</td>
-				<td id = "d4t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>7:30</div>
-				</td>
-				<td id = "d5t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>7:30</div>
-				</td>
-				<td id = "d6t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>7:30</div>
-				</td>
-			    </tr>
-			    <tr>
-				<td id = "d0t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown  = "mouseDown(this);">
-				    <div>8:00am</div>
-				</td>
-				<td id = "d1t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>8:00am</div>
-				</td>
-				<td id = "d2t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>8:00am</div>
-				</td>
-				<td id = "d3t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>8:00am</div>
-				</td>
-				<td id = "d4t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>8:00am</div>
-				</td>
-				<td id = "d5t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>8:00am</div>
-				</td>
-				<td id = "d6t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>8:00am</div>
-				</td>
-			    </tr>
-			    <tr>
-				<td id = "d0t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown  = "mouseDown(this);">
-				    <div>8:30</div>
-				</td>
-				<td id = "d1t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>8:30</div>
-				</td>
-				<td id = "d2t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>8:30</div>
-				</td>
-				<td id = "d3t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>8:30</div>
-				</td>
-				<td id = "d4t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>8:30</div>
-				</td>
-				<td id = "d5t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>8:30</div>
-				</td>
-				<td id = "d6t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>8:30</div>
-				</td>
-			    </tr>
-			    <tr>
-				<td id = "d0t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown  = "mouseDown(this);">
-				    <div>9:00am</div>
-				</td>
-				<td id = "d1t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>9:00am</div>
-				</td>
-				<td id = "d2t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>9:00am</div>
-				</td>
-				<td id = "d3t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>9:00am</div>
-				</td>
-				<td id = "d4t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>9:00am</div>
-				</td>
-				<td id = "d5t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>9:00am</div>
-				</td>
-				<td id = "d6t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>9:00am</div>
-				</td>
-			    </tr>
-			    <tr>
-				<td id = "d0t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown  = "mouseDown(this);">
-				    <div>9:30</div>
-				</td>
-				<td id = "d1t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>9:30</div>
-				</td>
-				<td id = "d2t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>9:30</div>
-				</td>
-				<td id = "d3t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>9:30</div>
-				</td>
-				<td id = "d4t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>9:30</div>
-				</td>
-				<td id = "d5t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>9:30</div>
-				</td>
-				<td id = "d6t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>9:30</div>
-				</td>
-			    </tr>
-			    <tr>
-				<td id = "d0t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown  = "mouseDown(this);">
-				    <div>10:00am</div>
-				</td>
-				<td id = "d1t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>2:00am</div>
-				</td>
-				<td id = "d2t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>10:00am</div>
-				</td>
-				<td id = "d3t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>10:00am</div>
-				</td>
-				<td id = "d4t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>10:00am</div>
-				</td>
-				<td id = "d5t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>10:00am</div>
-				</td>
-				<td id = "d6t0200" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>10:00am</div>
-				</td>
-			    </tr>
-			    <tr>
-				<td id = "d0t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown  = "mouseDown(this);">
-				    <div>10:30</div>
-				</td>
-				<td id = "d1t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>10:30</div>
-				</td>
-				<td id = "d2t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>10:30</div>
-				</td>
-				<td id = "d3t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>10:30</div>
-				</td>
-				<td id = "d4t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>10:30</div>
-				</td>
-				<td id = "d5t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>10:30</div>
-				</td>
-				<td id = "d6t0230" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>10:30</div>
-				</td>
-			    </tr>
-			    <tr>
-				<td id = "d0t0100" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown  = "mouseDown(this);">
-				    <div>11:00am</div>
-				</td>
-				<td id = "d1t0100" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>11:00am</div>
-				</td>
-				<td id = "d2t0100" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>11:00am</div>
-				</td>
-				<td id = "d3t0100" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>11:00am</div>
-				</td>
-				<td id = "d4t0100" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>11:00am</div>
-				</td>
-				<td id = "d5t0100" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>11:00am</div>
-				</td>
-				<td id = "d6t0100" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>11:00am</div>
-				</td>
-			    </tr>
-			    <tr>
-				<td id = "d0t0130" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown  = "mouseDown(this);">
-				    <div>11:30</div>
-				</td>
-				<td id = "d1t0130" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>11:30</div>
-				</td>
-				<td id = "d2t0130" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>11:30</div>
-				</td>
-				<td id = "d3t0130" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>11:30</div>
-				</td>
-				<td id = "d4t0130" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>11:30</div>
-				</td>
-				<td id = "d5t0130" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>11:30</div>
-				</td>
-				<td id = "d6t0130" class = "timeText weekdayColor" onmouseover = "mouseOver(this);" onmousedown = "mouseDown(this);">
-				    <div>11:30</div>
-				</td>
-			    </tr>
-			</tbody>
+			 
 		    </table>
-		</div>
 
 <!-----------------END CALENDAR CODE-------------------------------->
 		<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="a">

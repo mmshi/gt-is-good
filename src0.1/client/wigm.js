@@ -114,3 +114,31 @@ function setTimeStatusBad(td){
 function setTimeStatusHorrible(td){
 	td.className = "H";
 }
+
+$('#my-slider').change(function() {
+/*
+    var myswitch = $(this);
+    var show     = myswitch[0].selectedIndex == 1 ? true:false;
+    
+    if(show) {
+        $('#show-me').fadeIn('slow');
+    } else {
+        $('#show-me').fadeOut('slow');
+    }
+*/
+alert('hai!');
+});
+
+/*$('#selectionStatusFlip').change(function() {
+	alert('test');
+    var myswitch = $(this);
+    var stickyOption  = myswitch[0].selectedIndex == 1 ? true:false;
+	if(stickyOption){
+       setSelectionStatus(2);
+	   alert('here2');
+	}else{
+		setSelectionStatus(1);
+	}
+});
+*/
+

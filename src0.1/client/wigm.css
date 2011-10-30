@@ -1,5 +1,8 @@
 /* CSS Document */
-
+body{
+	
+	orient="landscape"
+}
 /*defining classes of text*/
 .dateHeader {
     font-weight: bold;
@@ -71,6 +74,10 @@ td
 
 .weekendColor {
 	background-color:rgb(200,200,200);
+}
+
+.hidden {
+    display:none;   
 }
 
 body {
