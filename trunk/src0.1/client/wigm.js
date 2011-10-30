@@ -7,6 +7,13 @@ var firstClick = true;		// tracks first click, second click for sticky function
 var r1 = -1;				// tracks first click (row) for sticky functoin
 var c1 = -1;				// tracks first click (column) for sticky functoin
 
+var numOfRows = 0;
+
+function setNumOfRows(num){
+	
+	numOfRows = num;
+}
+
 function applyTimeStatus(td){
 	var sId;
 
@@ -85,6 +92,37 @@ function applyTimeStatus(td){
 	firstClick = !firstClick; 
 }
 
+
+function applyTimeStatusDay(td){
+	var r2;
+	var c2;
+	var cell;
+	var temp;
+	var sId;
+
+	sId = (td.id).split("-");
+	//r2 = sId[0];
+	r = numOfRows;
+	c = sId[1];
+	for( var rIdx = 0; rIdx <= r; rIdx++){					
+		var str = ''+rIdx+'-'+c;
+		cell = document.getElementById(""+rIdx+"-"+c);								//need 'document.' becuse the getElementId need to know where to get the elemebyById from.
+		if( timeStatus == 0){
+			setTimeStatusHorrible(cell);	
+		}
+		else if(timeStatus == 1){
+			setTimeStatusBad(cell);	
+		}
+		else if(timeStatus == 2){
+			setTimeStatusGood(cell);
+		}
+		else if(timeStatus == 3){
+			setTimeStatusAwesome(cell);	
+		}
+	}
+}
+
+
 function setSelectionStatus(intVal){
 	if((r1 > -1) && (c1>-1)){
 		var cell =document.getElementById(""+r1+"-"+c1);
@@ -115,26 +153,15 @@ function setTimeStatusHorrible(td){
 	td.className = "H";
 }
 
-$('#my-slider').change(function() {
-    var myswitch = $(this);
-    var show     = myswitch[0].selectedIndex == 1 ? true:false;
-    
-    if(show) {
-        $('#show-me').fadeIn('slow');
-    } else {
-        $('#show-me').fadeOut('slow');
-    }
-});
 
 $('#selectionStatusFlip').change(function() {
-	alert('test');
+	
     var myswitch = $(this);
     var stickyOption  = myswitch[0].selectedIndex == 1 ? true:false;
 	if(stickyOption){
-       setSelectionStatus(2);
-	   alert('here2');
+       setSelectionStatus(1);
 	}else{
-		setSelectionStatus(1);
+		setSelectionStatus(2);
 	}
 });
 
