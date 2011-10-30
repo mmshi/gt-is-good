@@ -116,7 +116,6 @@ function setTimeStatusHorrible(td){
 }
 
 $('#my-slider').change(function() {
-/*
     var myswitch = $(this);
     var show     = myswitch[0].selectedIndex == 1 ? true:false;
     
@@ -125,11 +124,9 @@ $('#my-slider').change(function() {
     } else {
         $('#show-me').fadeOut('slow');
     }
-*/
-alert('hai!');
 });
 
-/*$('#selectionStatusFlip').change(function() {
+$('#selectionStatusFlip').change(function() {
 	alert('test');
     var myswitch = $(this);
     var stickyOption  = myswitch[0].selectedIndex == 1 ? true:false;
@@ -140,5 +137,4 @@ alert('hai!');
 		setSelectionStatus(1);
 	}
 });
-*/
 

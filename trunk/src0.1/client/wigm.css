@@ -1,7 +1,7 @@
 /* CSS Document */
 body{
 	
-	orient="landscape"
+	orientation = "landscape";
 }
 /*defining classes of text*/
 .dateHeader {
