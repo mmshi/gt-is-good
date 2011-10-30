@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<api>
+  <description>
+    <![CDATA[     TODO Comments Here   ]]>
+  </description>
+
+  <command id='' security=''>
+    <description>
+      <![CDATA[     TODO Comments Here   ]]>
+    </description>
+    
+    <index>
+      <description>
+	<![CDATA[     TODO Comments Here   ]]>
+      </description>
+      <action file=''>
+	<![CDATA[     TODO phpCommandHere();   ]]>
+      </action>
+    </index>
+    
+    <get>
+      <description>
+	<![CDATA[     TODO Comments Here   ]]>
+      </description>
+      <action file=''>
+	<![CDATA[     TODO phpCommandHere();   ]]>
+      </action>
+    </get>
+    
+    <post>
+      <description>
+	<![CDATA[     TODO Comments Here   ]]>
+      </description>
+      <action file=''>
+	<![CDATA[     TODO phpCommandHere();   ]]>
+      </action>
+    </post>
+    
+    <put>
+      <description>
+	<![CDATA[     TODO Comments Here   ]]>
+      </description>
+      <action file=''>
+	<![CDATA[     TODO phpCommandHere();   ]]>
+      </action>
+    </put>
+    
+  </command>
+</api>
