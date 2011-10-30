@@ -1,49 +1,99 @@
 <?xml version="1.0"?>
 <api>
-  <description>
-    <![CDATA[     TODO Comments Here   ]]>
-  </description>
+	<description>
+	<![CDATA[     TODO Comments Here   ]]>
+	</description>
 
-  <command id='' security=''>
-    <description>
-      <![CDATA[     TODO Comments Here   ]]>
-    </description>
-    
-    <index>
-      <description>
-	<![CDATA[     TODO Comments Here   ]]>
-      </description>
-      <action file=''>
-	<![CDATA[     TODO phpCommandHere();   ]]>
-      </action>
-    </index>
-    
-    <get>
-      <description>
-	<![CDATA[     TODO Comments Here   ]]>
-      </description>
-      <action file=''>
-	<![CDATA[     TODO phpCommandHere();   ]]>
-      </action>
-    </get>
-    
-    <post>
-      <description>
-	<![CDATA[     TODO Comments Here   ]]>
-      </description>
-      <action file=''>
-	<![CDATA[     TODO phpCommandHere();   ]]>
-      </action>
-    </post>
-    
-    <put>
-      <description>
-	<![CDATA[     TODO Comments Here   ]]>
-      </description>
-      <action file=''>
-	<![CDATA[     TODO phpCommandHere();   ]]>
-      </action>
-    </put>
-    
-  </command>
+	<command id='WAWschedules' security='public'>
+		<description>
+			<![CDATA[     TODO Comments Here   ]]>
+		</description>
+
+		<index>
+			<description>
+				<![CDATA[Provides valid information to the user from the GtWAW 
+					developers/staff.]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[scheduleIndex();]]>
+			</action>
+		</index>
+
+		<get>
+			<description>
+				<![CDATA[Provides a list URL's for schedule results for given 
+					user.]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[scheduleList($_REST['userID']);]]>
+			</action>
+		</get>
+
+		<post>
+			<description>
+				<![CDATA[Adds a new schedule to the databse. Returns a key value 
+					pair of the created schedule or an error message.]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[schedulesAddNew($_POST['loggedInUserID'], 
+					$_POST['startDate'], $_POST['endDate'], $_POST['alias'], 
+					$_POST['type']);]]>
+			</action>
+		</post>
+
+		<put>
+			<description>
+				<![CDATA[Updates provided schdule with new information. Returns 
+					the updated object or error message.]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[schedulesUpdate($_POST['scheduleID'], $_POST['loggedInUserID'], 
+					$_POST['startDate'], $_POST['endDate'], $_POST['alias'], 
+					$_POST['type']);]]>
+			</action>
+		</put>
+
+	</command>
+
+
+	<command id='WAWusers' security='public'>
+		<description>
+			<![CDATA[     TODO Comments Here   ]]>
+		</description>
+
+		<get>
+			<description>
+				<![CDATA[Returns a user with provided credentials. Valid credentials 
+					include 'id' and 'email'.]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[usersGetByCredentials($_REST['credentials']);]]>
+			</action>
+		</get>
+
+		<post>
+			<description>
+				<![CDATA[Creates a new user. Returns the created object as a key-value 
+					pair or returns an error message. Emails must be unique.]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[usersAddNew($_POST['name'], $_POST['email'], $_POST['password'], 
+					$_POST['pullDataFromTSquare']);]]>
+			</action>
+		</post>
+
+		<put>
+			<description>
+				<![CDATA[Updates a user with the provided information. Returns the 
+					created object as a key-value pair or returns an error message. 
+					Emails must be unique.]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[usersUpdate($_POST['loggedInUserID'], $_POST['toEditUserID'], 
+					$_POST['name'], $_POST['email'], $_POST['password'], 
+					$_POST['pullDataFromTSquare']););]]>
+			</action>
+		</put>
+
+	</command>
 </api>
