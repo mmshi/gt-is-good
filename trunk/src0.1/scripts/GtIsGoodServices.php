@@ -98,8 +98,19 @@ function getAllSchedulesByCreator($creatorId) {
 }
 
 function updateSchedule($sch, $loggedInUserID) {
-	// TODO: update the specified schedule (only if logged in user matches 
-	// the creatorID in the database
+$id=$sch->getId();
+/*$sql="SELECT 'createrID' FROM `gtisgood`.`schedule` WHERE `creatorID`=$loggedInUserID AND 'schID'=$id;"
+$result=mysql_query($sql);
+$rowcount=mysql_numrows($result);*/
+	$startDate= $sch->startDate;
+	$endDate= $sch->endDate;
+	$type= $sch->periodType;
+	$alias = $sch->alias;
+/*while($row = mysql_fetch_array($result)){
+$id=$row["schID"];*/
+$sql="UPDATE `gtisgood`.`schedule` SET `startDate`='$startDate', `endDate`='$endDate',`alias`='$alias', `periodType`='$type' WHERE 'schID'=$id AND `creatorID`=$loggedInUserID ;";
+$result=mysql_query($sql);
+/*}*/
 }
 
 
@@ -168,8 +179,12 @@ function getGridsBySchedule($schId) {
 }
 
 function updateGrid($grid, $loggedInUserID) {
-	// TODO: update the specified schedule (only if logged in user matches 
-	// the creatorID in the database
+	$id= $grid->getId();
+	$type= $grid->getScheduleType();
+	$data= $grid->data;
+	$comments= $grid->comments;
+$sql="UPDATE `gtisgood`.'grid','gtisgood'.'linktable' SET 'type'='%type','data'='$data','comments'='$comments' WHERE 'gridID'=$id AND 'userID'=$loggedInUserID;";
+$result=mysql_query($sql);	
 }
 
 
@@ -250,8 +265,12 @@ function getAllUsers() {
 }
 
 function updateUser($user, $loggedInUserID) {
-	// TODO: update the specified user (only if logged in user 
-	// has the neccessary priviledges
+$name=$user->name;
+$email=$user->email;
+$password=$user->password;
+$fromTsquare = $user->fromTsquare;
+$sql="UPDATE `gtisgood`.`user` SET `name`='$name', `email`='$email', `password`='$email', `fromTSquare`='$fromTsquare' WHERE 'userID'=$loggedInUserID;";
+$result=mysql_query($sql);
 }
 
 ?>
