@@ -87,7 +87,7 @@ function getAllSchedulesByCreator($creatorId) {
 	return 0;
 }
 
-function  parseScheduleRow($row) {
+/*private*/ function  parseScheduleRow($row) {
 	$creatorId = $row["createrID"];
 	$startDate= $row["startDate"];
 	$endDate= $row["endDate"];
@@ -95,6 +95,11 @@ function  parseScheduleRow($row) {
 	$type= $row["periodType"];
 	$alias = $row["alias"];
 	return new GTIGSchedule($id, $creatorId, $startDate, $endDate, $alias, $type);
+}
+
+function updateSchedule($sch, $loggedInUserID) {
+	// TODO: update the specified schedule (only if logged in user matches 
+	// the creatorID in the database
 }
 
 
@@ -153,14 +158,18 @@ function getGridsBySchedule($schId) {
 	return 0;
 }
 
-// PRIVATE
-function parseGridRow($row) {
+/*private*/ function parseGridRow($row) {
 	$id= $row["gridID"];
 	$userId= $row["userID"];
 	$type= $row["type"];
 	$data= $row["data"];
 	$comments= $row["comments"];
 	return new GTIGGrid($id, $userId, $type, $data, $comments);
+}
+
+function updateGrid($grid, $loggedInUserID) {
+	// TODO: update the specified schedule (only if logged in user matches 
+	// the creatorID in the database
 }
 
 
@@ -231,14 +240,18 @@ function getAllUsers() {
 	return 0;
 }
 
-// PRIVATE
-function parseUserRow($row) {
+/*private*/ function parseUserRow($row) {
 	$id = $row["userID"];
 	$name = $row["name"];
 	$email = $row["email"];
 	$password = $row["password"];
 	$fromTsquare = $row["fromTSquare"];
 	return new GTIGUser($id, $name,$email,$password,$fromTsquare);
+}
+
+function updateUser($user, $loggedInUserID) {
+	// TODO: update the specified user (only if logged in user 
+	// has the neccessary priviledges
 }
 
 ?>
