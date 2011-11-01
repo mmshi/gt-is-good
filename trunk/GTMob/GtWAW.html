@@ -1,0 +1,282 @@
+<div data-role="page" id="home">
+	<div data-role="header">
+		<h1>GT [W]hen [A]nd [W]here</h1>
+	</div>
+	<div data-role="content">
+
+   <!-- Display Index information here -->
+	<p id="indexInfo">Georgia Tech [W]hen [A]nd [W]here exists to...</p>
+
+		<!-- View Valid Schedules -->
+
+		<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="a">
+			<h3>View All</h3>
+			<p>here you will view a list of schedules</p>
+		</div>
+
+
+		<!-- View Currently Selected Schedule -->
+
+		<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="a">
+			<h3>View Current</h3>
+			<p>here you will view the calendar</p>
+
+	<!-- Stick Selector -->
+				<div data-role="fieldcontain">
+					<label for="onclick"></label>
+					<select name="slider" id="selectionStatusFlip" data-role="slider" data-theme="a">
+						<option value="sticky">Sticky</option>
+						<option value="single">Single</option>
+					</select> 
+				</div>
+
+
+			<br/>
+
+	<!-- Color Selection -->
+			<div >
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend></legend>
+						<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
+						<label for="radio-choice-1">
+						<img src="images/horrible.png" width=15px height=15px /></label>
+
+						<input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
+						<label for="radio-choice-2">
+						<img src="images/bad.png" width=15px height=15px /></label>
+
+						<input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3"  />
+						<label for="radio-choice-3">
+						<img src="images/good.png" width=15px height=15px /></label>
+
+						<input type="radio" name="radio-choice-1" id="radio-choice-4" value="choice-4"  />
+						<label for="radio-choice-4">
+						<img src="images/awesome.png" width=15px height=15px /></label>
+				</fieldset>
+			</div>
+
+
+			<br/>
+
+	<!-- Current Calendar Display -->
+			<table>
+				
+					<tr>
+					<td id = "d-0" class = "dateHeader weekendColor" onclick = "applyTimeStatusDay(this);">
+						<div class = "dayText">
+							Sun<br />16<br />OCT
+						</div>
+					</td>
+					<td id = "d-1" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
+						<div class = "dayText">
+							Mon<br />17<br />OCT
+						</div>
+					</td>
+					<td id = "d-2" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
+						<div class = "dayText">
+							Tue<br />18<br />OCT
+						</div>
+					</td>
+					<td id = "d-3" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
+						<div class = "dayText">
+							Wed<br />19<br />OCT
+						</div>
+					</td>
+					<td id = "d-4" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
+						<div class = "dayText">
+							Thu<br />20<br />OCT
+						</div>
+					</td>
+					<td id = "d-5" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
+						<div class = "dayText">
+							Fri<br />21<br />OCT
+						</div>
+					</td>
+					<td id = "d-6" class = "dateHeader weekendColor" onclick = "applyTimeStatusDay(this);">
+						<div class = "dayText">
+							Sat<br />22<br />OCT
+						</div>
+					</td>
+					</tr>
+				
+					<tr>
+					<td id = "0-0" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>12:00</div>
+					</td>
+					<td id = "0-1" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>12:00</div>
+					</td>
+					<td id = "0-2" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>12:00</div>
+					</td>
+					<td id = "0-3" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>12:00</div>
+					</td>
+					<td id = "0-4" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>12:00</div>
+					</td>
+					<td id = "0-5" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>12:00</div>
+					</td>
+					<td id = "0-6" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>12:00</div>
+					</td>
+					</tr>
+					<tr>
+					<td id = "1-0" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>12:30</div>
+					</td>
+					<td id = "1-1" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>12:30</div>
+					</td>
+					<td id = "1-2" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>12:30</div>
+					</td>
+					<td id = "1-3" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>12:30</div>
+					</td>
+					<td id = "1-4" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>12:30</div>
+					</td>
+					<td id = "1-5" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>12:30</div>
+					</td>
+					<td id = "1-6" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>12:30</div>
+					</td>
+					</tr>    
+					<tr>
+					<td id = "2-0" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>1:00</div>
+					</td>
+					<td id = "2-1" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>1:00</div>
+					</td>
+					<td id = "2-2" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>1:00</div>
+					</td>
+					<td id = "2-3" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>1:00</div>
+					</td>
+					<td id = "2-4" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>1:00</div>
+					</td>
+					<td id = "2-5" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>1:00</div>
+					</td>
+					<td id = "2-6" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>1:00</div>
+					</td>
+					</tr>
+					<tr>
+					<td id = "3-0" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>1:30</div>
+					</td>
+					<td id = "3-1" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>1:30</div>
+					</td>
+					<td id = "3-2" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>1:30</div>
+					</td>
+					<td id = "3-3" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>1:30</div>
+					</td>
+					<td id = "3-4" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>1:30</div>
+					</td>
+					<td id = "3-5" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>1:30</div>
+					</td>
+					<td id = "3-6" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>1:30</div>
+					</td>
+					</tr> 
+					<tr>
+					<td id = "4-0" class = "t" onclick = "applyTimeStatus(this);" >
+
+						<div>2:00</div>
+					</td>
+					<td id = "4-1" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>2:00</div>
+					</td>
+					<td id = "4-2" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>2:00</div>
+					</td>
+					<td id = "4-3" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>2:00</div>
+					</td>
+					<td id = "4-4" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>2:00</div>
+					</td>
+					<td id = "4-5" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>2:00</div>
+					</td>
+					<td id = "4-6" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>2:00</div>
+					</td>
+					</tr>
+					<tr>
+					<td id = "5-0" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>2:30</div>
+					</td>
+					<td id = "5-1" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>2:30</div>
+					</td>
+					<td id = "5-2" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>2:30</div>
+					</td>
+					<td id = "5-3" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>2:30</div>
+					</td>
+					<td id = "5-4" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>2:30</div>
+					</td>
+					<td id = "5-5" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>2:30</div>
+					</td>
+					<td id = "5-6" class = "t" onclick = "applyTimeStatus(this);" >
+						<div>2:30</div>
+					</td>
+					</tr>  
+				</tr>
+			</table>
+
+	<!-- Show hide members of the current schedule -->
+			<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="a">
+				<h3>View Users</h3>
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+						<legend>Uncheck a member to exclude him/her from the above schedule:</legend>
+
+						<input type="checkbox" name="checkbox-1" id="checkbox-1" class="custom" />
+						<label for="checkbox-1">example user 1</label>
+
+						<input type="checkbox" name="checkbox-2" id="checkbox-2" class="custom" />
+						<label for="checkbox-2">example user 2</label>
+				</fieldset>
+				</div>
+			</div>
+		</div>
+
+	<!-- Create New Schedule Form View -->
+		<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="a">
+			<h3>Create New</h3>
+			<p>here we'll put an interface similar to the 'when is good' schedule creation interface</p>
+		</div>
+
+	<!-- Add Grid Form View -->
+		<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="a">
+			<h3>Join A Schedule</h3>
+			<p>Here we'll put an interface for, at first, accepting an invite code to join one;  in the future, hopefully, we can directly invite people to schedules.  It shows an invite code screen, then once that has been input, then, the enter schedule screen where they can enter the schedule information (maybe this is too repetative?)</p>
+		</div>
+
+	</div>
+</div>
+
+<script type="text/javascript"> 
+
+setNumOfRows(6); //TODO get real num of rows from PHP
+setButtonFunctionality();
+
+</script>
+
