@@ -4,7 +4,7 @@
 	<![CDATA[     TODO Comments Here   ]]>
 	</description>
 
-	<command id='WAWschedules' security='public'>
+	<command id='WAWschedule' security='public'>
 		<description>
 			<![CDATA[     TODO Comments Here   ]]>
 		</description>
@@ -25,7 +25,7 @@
 					user.]]>
 			</description>
 			<action file='GtWAWpublic.php'>
-				<![CDATA[scheduleList($_REST['userID']);]]>
+				<![CDATA[scheduleList($_REST['WAWschedule']);]]>
 			</action>
 		</get>
 
@@ -35,7 +35,7 @@
 					pair of the created schedule or an error message.]]>
 			</description>
 			<action file='GtWAWpublic.php'>
-				<![CDATA[schedulesAddNew($_POST['loggedInUserID'], 
+				<![CDATA[scheduleAddNew($_POST['loggedInUserID'], 
 					$_POST['startDate'], $_POST['endDate'], $_POST['alias'], 
 					$_POST['type']);]]>
 			</action>
@@ -47,16 +47,65 @@
 					the updated object or error message.]]>
 			</description>
 			<action file='GtWAWpublic.php'>
-				<![CDATA[schedulesUpdate($_POST['scheduleID'], $_POST['loggedInUserID'], 
+				<![CDATA[scheduleUpdate($_POST['scheduleID'], $_POST['loggedInUserID'], 
 					$_POST['startDate'], $_POST['endDate'], $_POST['alias'], 
 					$_POST['type']);]]>
 			</action>
 		</put>
 
 	</command>
+	
+	<command id='WAWgrid' security='public'>
+		<description>
+			<![CDATA[     TODO Comments Here   ]]>
+		</description>
+
+		<get>
+			<description>
+				<![CDATA[Returns a grid object with the specified id.]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[gridRetrieve($_REST['WAWgrid']);]]>
+			</action>
+		</get>
+
+		<post>
+			<description>
+				<![CDATA[Adds a new grid to the databse. Returns a key value 
+					pair of the created grid upon success or an error message.]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[gridAddNew($_POST['loggedInUserID'], 
+					$_POST['scheduleID'], $_POST['data'], $_POST['comments']);]]>
+			</action>
+		</post>
+
+		<put>
+			<description>
+				<![CDATA[Updates provided grid with new information. Returns 
+					the updated object upon success or error message.]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[gridUpdate($_POST['gridID'], $_POST['loggedInUserID'], 
+					$_POST['scheduleID'], $_POST['data'], $_POST['comments']);]]>
+			</action>
+		</put>
+
+		<delete>
+			<description>
+				<![CDATA[Removes the provided grid from the schedule. Returns a
+					success or error message.]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[gridDelete($_POST['gridID'], $_POST['loggedInUserID'], 
+					$_POST['scheduleID']);]]>
+			</action>
+		</delete>
+
+	</command>
 
 
-	<command id='WAWusers' security='public'>
+	<command id='WAWuser' security='public'>
 		<description>
 			<![CDATA[     TODO Comments Here   ]]>
 		</description>
@@ -67,7 +116,7 @@
 					include 'id' and 'email'.]]>
 			</description>
 			<action file='GtWAWpublic.php'>
-				<![CDATA[usersGetByCredentials($_REST['credentials']);]]>
+				<![CDATA[userGetByCredentials($_REST['WAWuser']);]]>
 			</action>
 		</get>
 
@@ -77,7 +126,7 @@
 					pair or returns an error message. Emails must be unique.]]>
 			</description>
 			<action file='GtWAWpublic.php'>
-				<![CDATA[usersAddNew($_POST['name'], $_POST['email'], $_POST['password'], 
+				<![CDATA[userAddNew($_POST['name'], $_POST['email'], $_POST['password'], 
 					$_POST['pullDataFromTSquare']);]]>
 			</action>
 		</post>
@@ -89,7 +138,7 @@
 					Emails must be unique.]]>
 			</description>
 			<action file='GtWAWpublic.php'>
-				<![CDATA[usersUpdate($_POST['loggedInUserID'], $_POST['toEditUserID'], 
+				<![CDATA[userUpdate($_POST['loggedInUserID'], $_POST['toEditUserID'], 
 					$_POST['name'], $_POST['email'], $_POST['password'], 
 					$_POST['pullDataFromTSquare']););]]>
 			</action>
