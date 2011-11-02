@@ -6,9 +6,13 @@
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.css" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+<script type="text/javascript" src="jquery.ui.datepicker.js"></script>
+<script type="text/javascript" src="jquery.ui.widget.js"></script>
+<script type="text/javascript" src="jquery.ui.core.js"></script>
 
 <link rel="stylesheet" type="text/css" href="wigm.css" />			<!-- this line ties the the css file 'theStyles.css' to this HTML file -->
-	
+<link rel="stylesheet" type="text/css" href="http://jqueryui.com/demos/demos.css" />
+<link rel="stylesheet" type="text/css" href="http://jqueryui.com/themes/base/jquery.ui.all.css" />
 
 </head>
 <body>
@@ -285,6 +289,61 @@
 	<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="a">
 	  	<h3>Join A Schedule</h3>
   		<p>Here we'll put an interface for, at first, accepting an invite code to join one;  in the future, hopefully, we can directly invite people to schedules.  It shows an invite code screen, then once that has been input, then, the enter schedule screen where they can enter the schedule information (maybe this is too repetative?)</p>
+
+		
+		<div class="demo">
+
+		<p>Date: <input type="text" id="datepicker"></p>
+
+		</div><!-- End demo -->
+
+		<script>
+			$(function() {
+				$( "#datepicker" ).datepicker();
+			});
+		</script>
+
+
+		<div timeBox1>
+			<label for="opt1" class="select">Start Time</label>
+			<select name="combobox" id="sTime">
+			    <option value="12">12:00</option>
+			    <option value="1">1:00</option>
+			    <option value="2">2:00</option>
+			    <option value="3">3:00</option>
+			    <option value="4">4:00</option>
+			    <option value="5">5:00</option>
+			    <option value="6">6:00</option>
+			    <option value="7">7:00</option>
+			    <option value="8">8:00</option>
+			    <option value="9">9:00</option>
+			    <option value="10">10:00</option>
+			    <option value="11">11:00</option>
+			</select>
+		</div>
+
+		<div timeBox2>
+			<label for="opt2" class="select">End Time</label>
+			<select name="combobox" id="sTime">
+			    <option value="12">12:00</option>
+			    <option value="1">1:00</option>
+			    <option value="2">2:00</option>
+			    <option value="3">3:00</option>
+			    <option value="4">4:00</option>
+			    <option value="5">5:00</option>
+			    <option value="6">6:00</option>
+			    <option value="7">7:00</option>
+			    <option value="8">8:00</option>
+			    <option value="9">9:00</option>
+			    <option value="10">10:00</option>
+			    <option value="11">11:00</option>
+			</select>
+		</div>
+
+		<div><button type="submit" data-theme="e">update</button></div>
+		<div><button type="submit" data-theme="a">submit</button></div>
+ 		<div><button type="submit" data-theme="b">cancel</button></div>
+
 	</div>
 
 	<!--
@@ -293,6 +352,12 @@
  		<div><button type="submit" data-theme="b">Submit</button></div>
 	</fieldset>
 	-->
+
+
+
+
+
+
  </div>
  <div data-role="footer">
   <h4>Footer</h4>
