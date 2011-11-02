@@ -190,7 +190,6 @@ function updateGrid($grid, $loggedInUserID) {
 	$data= $grid->data;
 	$comments= $grid->comments;
 	$sql="UPDATE `gtisgood`.`grid`, `gtisgood`.`linktable` SET `linktable`.`type`='$type',`grid`.`data`='$data',`grid`.`comments`='$comments' WHERE `grid`.`gridID`=$id AND `linktable`.`userID`=$loggedInUserID;";
-echo($sql);
 	$result=mysql_query($sql);	
 	breakCon($con);
 	}
