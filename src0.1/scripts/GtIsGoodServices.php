@@ -183,7 +183,7 @@ function updateGrid($grid, $loggedInUserID) {
 	$type= $grid->getScheduleType();
 	$data= $grid->data;
 	$comments= $grid->comments;
-$sql="UPDATE `gtisgood`.'grid','gtisgood'.'linktable' SET 'type'='%type','data'='$data','comments'='$comments' WHERE 'gridID'=$id AND 'userID'=$loggedInUserID;";
+$sql="UPDATE `gtisgood`.'grid','gtisgood'.'linktable' SET 'type'='$type','data'='$data','comments'='$comments' WHERE 'gridID'=$id AND 'userID'=$loggedInUserID;";
 $result=mysql_query($sql);	
 }
 
