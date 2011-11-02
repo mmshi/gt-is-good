@@ -98,19 +98,16 @@ function getAllSchedulesByCreator($creatorId) {
 }
 
 function updateSchedule($sch, $loggedInUserID) {
-$id=$sch->getId();
-/*$sql="SELECT 'createrID' FROM `gtisgood`.`schedule` WHERE `creatorID`=$loggedInUserID AND 'schID'=$id;"
-$result=mysql_query($sql);
-$rowcount=mysql_numrows($result);*/
+	$id=$sch->getId();
 	$startDate= $sch->startDate;
 	$endDate= $sch->endDate;
 	$type= $sch->periodType;
 	$alias = $sch->alias;
-/*while($row = mysql_fetch_array($result)){
-$id=$row["schID"];*/
-$sql="UPDATE `gtisgood`.`schedule` SET `startDate`='$startDate', `endDate`='$endDate',`alias`='$alias', `periodType`='$type' WHERE 'schID'=$id AND `creatorID`=$loggedInUserID ;";
-$result=mysql_query($sql);
-/*}*/
+	$sql="UPDATE `gtisgood`.`schedule` SET `startDate`='$startDate', `endDate`='$endDate',`alias`='$alias', `periodType`='$type' WHERE 'schID'=$id AND `creatorID`=$loggedInUserID ;";
+	$result=mysql_query($sql);
+	if ($result)
+		return $sch;
+	return 0;
 }
 
 
@@ -137,11 +134,11 @@ function createGrid($grid, $schId, $userId) {
 	return 0;
 }
 
-function getGridById($gid, $sid) {
+function getGridById($gid) {
 	// TODO
 	$con = connectToDb();
 	if ($con) {
-		$sql="SELECT * FROM `gtisgood`.`grid`, `gtisgood`.`linktable` WHERE `grid`.`gridID`=$gid AND `linktable`.`gridID`=$gid AND `linktable`.`schID`=$sid;";
+		$sql="SELECT * FROM `gtisgood`.`grid`, `gtisgood`.`linktable` WHERE `grid`.`gridID`=$gid AND `linktable`.`gridID`=$gid;";
 		$result = mysql_query($sql);
 		$rowcount = mysql_numrows($result);
 		if($rowcount<1)return 0;
@@ -183,8 +180,11 @@ function updateGrid($grid, $loggedInUserID) {
 	$type= $grid->getScheduleType();
 	$data= $grid->data;
 	$comments= $grid->comments;
-$sql="UPDATE `gtisgood`.'grid','gtisgood'.'linktable' SET 'type'='%type','data'='$data','comments'='$comments' WHERE 'gridID'=$id AND 'userID'=$loggedInUserID;";
-$result=mysql_query($sql);	
+	$sql="UPDATE `gtisgood`.'grid','gtisgood'.'linktable' SET 'type'='%type','data'='$data','comments'='$comments' WHERE 'gridID'=$id AND 'userID'=$loggedInUserID;";
+	$result=mysql_query($sql);	
+	if ($result)
+		return $grid;
+	return 0;
 }
 
 
@@ -265,12 +265,15 @@ function getAllUsers() {
 }
 
 function updateUser($user, $loggedInUserID) {
-$name=$user->name;
-$email=$user->email;
-$password=$user->password;
-$fromTsquare = $user->fromTsquare;
-$sql="UPDATE `gtisgood`.`user` SET `name`='$name', `email`='$email', `password`='$email', `fromTSquare`='$fromTsquare' WHERE 'userID'=$loggedInUserID;";
-$result=mysql_query($sql);
+	$name=$user->name;
+	$email=$user->email;
+	$password=$user->password;
+	$fromTsquare = $user->fromTsquare;
+	$sql="UPDATE `gtisgood`.`user` SET `name`='$name', `email`='$email', `password`='$email', `fromTSquare`='$fromTsquare' WHERE 'userID'=$loggedInUserID;";
+	$result=mysql_query($sql);
+	if ($result)
+		return $user;
+	return 0;
 }
 
 /**

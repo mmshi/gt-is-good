@@ -1,28 +1,49 @@
 <?php
 
+include_once "scripts/GtIsGoodServices.php";
+include_once "scripts/GtIsGoodServices.php";
+
 	function scheduleIndex() {
 		// TODO
-		echo 'scheduleIndex()\n';
+		echo 'This will be useful information provided to the users.';
 	}
 
 	function scheduleList($id) {
 		// TODO
-		echo 'scheduleList($id)\n';
+		$arr = getAllSchedulesByCreator($id);
+		if ($arr)
+			echo json_encode($arr);
+		echo json_encode({'error' : 'Error finding schedules for the current user.'});
 	}
 
 	function scheduleAddNew($loggedInUserID, $startDate, $endDate, $alias, $type) {
 		// TODO
-		echo 'scheduleAddNew($loggedInUserID, $startDate, $endDate, $alias, $type)\n';
+		$startDate = stringToDate($startDate);
+		$endDate = stringToDate($endDate);
+		$sch = createSchedule(new GTIGSchedule(-1, $loggedInUserID, $startDate, $endDate, $alias, $type));
+		if ($sch) {
+			echo json_encode($sch);
+		} else
+			echo json_encode({'error' : 'There was an error creating the new schedule. Please try again later.'});
 	}
 
 	function scheduleUpdate($scheduleID, $loggedInUserID, $startDate, $endDate, $alias, $type) {
 		// TODO
-		echo 'scheduleUpdate($scheduleID, $loggedInUserID, $startDate, $endDate, $alias, $type)\n';
+		$startDate = stringToDate($startDate);
+		$endDate = stringToDate($endDate);
+		$sch = createSchedule(new GTIGSchedule($scheduleID, -1, $startDate, $endDate, $alias, $type), $loggedInUserID);
+		if ($sch) {
+			echo json_encode($sch);
+		} else
+			echo json_encode({'error':'There was an error updating the schedule. Please try again later.'});
 	}
 
 	function gridRetrieve($gridID) {
 		// TODO
-		echo 'gridRetrieve($gridID)\n';
+		$grid = getGridById($gid);
+		if ($grid) 
+			echo json_encode($grid);
+		echo json_encode({'error' : 'Error finding the requested grid.'});
 	}
 
 	function gridAddNew($loggedInUserID, $scheduleID, $data, $comments) {
