@@ -16,7 +16,7 @@ function scheduleIndex() {
 function scheduleGet() {
 	$.ajax( 
 		{
-			url: "../../GtWAW/api/WAWschedule/WAWschedule_get",
+			url: "../../GtWAW/api/WAWschedule/1",
 			context: document.body,
 			success: function (data) {
 				$('#WAWschedule_get').html(data);
@@ -30,11 +30,11 @@ function schedulePost() {
 		{
 			type: "POST",
 			url: "../../GtWAW/api/WAWschedule",
-			data: { 'loggedInUserID': 'loggedInUserID', 
-					'startDate': 'startDate', 
-					'endDate': 'endDate',
-					'alias': 'alias',
-					'type': 'type'
+			data: { 'loggedInUserID': '1', 
+					'startDate': '2011-11-1 9:27:30', 
+					'endDate': '2011-11-1 9:27:30',
+					'alias': 'ScheduleAlias',
+					'type': '30min'
 				},
 			context: document.body,
 			success: function (data) {
@@ -48,12 +48,12 @@ function schedulePut() {
 	$.ajax( 
 		{
 			url: "../../GtWAW/api/WAWschedule",
-			data: { 'scheduleID': 'scheduleID',
+			data: { 'scheduleID': '1',
 					'loggedInUserID': '1', 
-					'startDate': 'startDate', 
-					'endDate': 'endDate',
-					'alias': 'alias',
-					'type': 'type'
+					'startDate': '2011-11-1 9:27:30', 
+					'endDate': '2011-11-1 9:27:30',
+					'alias': 'ScheduleAlias',
+					'type': '30min'
 			},
 			context: document.body,
 			header: { 'X-HTTP-Method-Override': 'POST' },
@@ -84,10 +84,10 @@ function gridPost() {
 	$.ajax( 
 		{
 			url: "../../GtWAW/api/WAWgrid",
-			data: { 'loggedInUserID': 'loggedInUserID', 
-					'scheduleID': 'scheduleID', 
-					'data': 'data',
-					'comments': 'comments'
+			data: { 'loggedInUserID': '1', 
+					'scheduleID': '1', 
+					'data': 'aaaaaaaaaaaaaaaaaaaa',
+					'comments': 'Call me if anything changes.'
 			},
 			context: document.body,
 			type: 'POST',
@@ -102,11 +102,11 @@ function gridPut() {
 	$.ajax( 
 		{
 			url: "../../GtWAW/api/WAWgrid",
-			data: { 'gridID': 'gridID', 
-					'loggedInUserID': 'loggedInUserID', 
-					'scheduleID': 'scheduleID', 
-					'data': 'data',
-					'comments': 'comments'
+			data: { 'gridID': '1', 
+					'loggedInUserID': '1', 
+					'scheduleID': '1', 
+					'data': 'aaaaaaaaaaaaaaaaaaaa',
+					'comments': 'Call me if anything changes.'
 			},
 			context: document.body,
 			header: { 'X-HTTP-Method-Override': 'POST' },
@@ -137,10 +137,10 @@ function userPost() {
 	$.ajax( 
 		{
 			url: "../../GtWAW/api/WAWuser",
-			data: { 'name': 'name', 
-					'email': 'email', 
+			data: { 'name': 'David', 
+					'email': 'desposito7@gatech.edu', 
 					'password': 'password',
-					'pullDataFromTSquare': 'pullDataFromTSquare'
+					'pullDataFromTSquare': '0'
 			},
 			context: document.body,
 			type: 'POST',
@@ -155,12 +155,12 @@ function userPut() {
 	$.ajax( 
 		{
 			url: "../../GtWAW/api/WAWuser",
-			data: { 'loggedInUserID': 'loggedInUserID', 
-					'toEditUserID': 'toEditUserID', 
-					'name': 'name', 
-					'email': 'email', 
+			data: { 'loggedInUserID': '1', 
+					'toEditUserID': '1', 
+					'name': 'David', 
+					'email': 'desposito7@gatech.edu', 
 					'password': 'password',
-					'pullDataFromTSquare': 'pullDataFromTSquare'
+					'pullDataFromTSquare': '0'
 			},
 			context: document.body,
 			header: { 'X-HTTP-Method-Override': 'POST' },
