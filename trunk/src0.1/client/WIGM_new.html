@@ -26,7 +26,13 @@
 
 	<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="a">
 	  	<h3>View All</h3>
-  		<p>here you will view a list of schedules</p>
+  		<ul data-role="listview" data-theme="g">
+
+			<!--ERROR BECAUSE IT'S TRYING TO ACCESS AN HTML PAGE!  FIX LATER!  -->
+			<li><a href="acura.html">Acura</a></li>
+			<li><a href="audi.html">Audi</a></li>
+			<li><a href="bmw.html">BMW</a></li>
+		</ul>
 	</div>
 
 	<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="a">
@@ -533,7 +539,8 @@
                 
 		                <p>Name: <input type="text" id="nameBox"></p>
 		                <p>Comments: <input type="text" id="commentBox"></p>
-                        <div><button type="submit" data-theme="c">Submit</button></div>
+                        	<div><button type="submit" data-theme="c">Submit</button></div>
+				<div><button type="submit" data-theme="c">Cancel</button></div>
                         
                 <!-----------------END CALENDAR CODE-------------------------------->
                 </div>
