@@ -153,8 +153,8 @@ function setTimeStatusHorrible(td){
 	td.className = "H";
 }
 
-
-$('#selectionStatusFlip').change(function() {
+			
+$('#selectionStatusFlip').change(function() {									//$(....) = do jquery magic			'#<element id>'  = like getElementById
 	
     var myswitch = $(this);
     var stickyOption  = myswitch[0].selectedIndex == 1 ? true:false;
@@ -165,3 +165,24 @@ $('#selectionStatusFlip').change(function() {
 	}
 });
 
+$(document).ready(function(){
+	$('#timeStatusButtons input:radio').change(function (event, ui){
+		//alert("radio change");	
+		//alert($(this).val());  / <----this shows value before change
+		//alert($('input[name=radio-group-1]:checked').val());			//<----this shows the value after change
+		var selection = $('input[name=radio-group-1]:checked').val();
+		if(selection == 'choice-0'){
+				timeStatus = 0;
+		}
+		else if(selection == 'choice-1'){
+				timeStatus = 1;
+		}
+		else if(selection == 'choice-2'){
+				timeStatus = 2;
+		}
+		else if(selection == 'choice-3'){
+				timeStatus = 3;
+		}
+		
+	});
+});
