@@ -56,6 +56,7 @@
             </div>
 
         	<div name = "view result" id = "resultTable" class = "">
+            <!--
                                 <table>
                                 <tr>
                                 <td id = "d-0" class = "dateHeader weekendColor"   >
@@ -236,9 +237,10 @@
                                 </tr>  
                               </tr>
                             </table>
+              -->
              </div>
                       
-                      
+                     
              <div name = "edit Result Table" id = "editResultTable" class = "hidden">
                                <!-----------------START CALENDAR CODE-------------------------------->
                                 <!--<div id="bounds">	-->
@@ -247,7 +249,7 @@
                                     -->
                                     <div data-role="fieldcontain">
                                             <label for="onclick"></label>
-                                            <select name="slider" id="selectionStatusFlip" data-role="slider" data-theme="a">
+                                            <select name="slider" id="selectionStatusFlip1" data-role="slider" data-theme="a">
                                                 <option value="sticky">Sticky</option>
                                                 <option value="single">Single</option>
                                             </select> 
@@ -257,7 +259,7 @@
                                 
                         
                                 <br/>
-                                <div id = 'timeStatusButtons'>
+                                <div id = 'timeStatusButtonsEdit'>
                                         <fieldset data-role="controlgroup" data-type="horizontal">
                                             <legend></legend>
                                                 <input type="radio" name="radio-group-1" id="radio-choice-1" value="choice-0" checked="checked" />
@@ -862,8 +864,9 @@
                                 <p>Comments: <input type="text" id="commentBox"></p>
                                     <div><button type="submit" data-theme="c">Submit</button></div>
                         <div><button type="submit" data-theme="c">Cancel</button></div>
-                                
+                              
                         <!-----------------END CALENDAR CODE-------------------------------->
+
 	         </div>         
              <div data-role="collapsible" data-collapsed="true" data-theme="e" data-content-theme="a">
                                     <h3>View Users</h3>
@@ -986,7 +989,7 @@
                             -->
                             <div data-role="fieldcontain">
                                     <label for="onclick"></label>
-                                    <select name="slider" id="selectionStatusFlip" data-role="slider" data-theme="a">
+                                    <select name="slider" id="selectionStatusFlip2" data-role="slider" data-theme="a">
                                         <option value="sticky">Sticky</option>
                                         <option value="single">Single</option>
                                     </select> 
@@ -996,7 +999,7 @@
                         
                 
                         <br/>
-                        <div id = 'timeStatusButtons'>
+                        <div id = 'timeStatusButtonsJoin'>
                                 <fieldset data-role="controlgroup" data-type="horizontal">
                                     <legend></legend>
                                         <input type="radio" name="radio-group-1" id="radio-choice-1" value="choice-0" checked="checked" />

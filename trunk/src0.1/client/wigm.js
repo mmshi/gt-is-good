@@ -1,11 +1,14 @@
 // JavaScript Document
 
-var selectionStatus = 1;	// 1 = SINGLE; 2 = STICKY
-var timeStatus =  2;		// 0 = BAD, 1 = Bad, 2 = Good, 3 = GOOD
+var selectionStatus1 = 1;	// 1 = SINGLE; 2 = STICKY
+var selectionStatus2 = 1;	// 1 = SINGLE; 2 = STICKY
+var timeStatus1 =  2;		// 0 = BAD, 1 = Bad, 2 = Good, 3 = GOOD
+var timeStatus2 =  2;		// 0 = BAD, 1 = Bad, 2 = Good, 3 = GOOD
 var firstClick = true;		// tracks first click, second click for sticky function
 
-var r1 = -1;				// tracks first click (row) for sticky functoin
-var c1 = -1;				// tracks first click (column) for sticky functoin
+var r1 = -1;				// tracks first click (row) for sticky function
+var c1 = -1;				// tracks first click (column) for sticky function
+var t1 = -1;				// tracks frist click (table) for sticky function
 
 var numOfRows = 0;
 
@@ -16,83 +19,99 @@ function setNumOfRows(num){
 
 function applyTimeStatus(td){
 	var sId;
+	var r2;
+	var c2;
+	var t2;
+	
+	sId = (td.id).split("-");
+	r2 = sId[0];
+	c2 = sId[1];
+	t2 = sId[2];
 
-	if(selectionStatus == 2){
+	if( (((t2 ==1) && (selectionStatus1 == 2))  ||  (((t2 ==2) && (selectionStatus2 == 2)))) )  {
 		if(firstClick){
 			//----do sticky section here	
 			sId = (td.id).split("-");
 			r1 = sId[0];
 			c1 = sId[1];
+			t1 = sId[2];
 			td.style.border = "solid 1px #000";
-			td.style.fontWeight =  "bolder";
-			
+			td.style.fontWeight =  "bolder";	
 		}
 		if(!firstClick){
-			var r2;
-			var c2;
-			var t;
-			var cell;
 			var temp;
+			var cell;
 			
-			sId = (td.id).split("-");
-			r2 = sId[0];
-			c2 = sId[1];
-			t = sId[2];
-			
-			cell = document.getElementById(""+r1+"-"+c1);
+			cell = document.getElementById(""+r1+"-"+c1+"-"+t1);								//----get the first click cell
 			cell.style.border = "solid 0px #000";
 			cell.style.fontWeight =  "normal";
 			
-			//----this will allow revese slection (bottom right to top left)---JUST SWAPPING THE VARIABLES
-			if(r1>r2){
-				t = r2;
-				r2 = r1;
-				r1 = t;	
-			}
-			if(c1 > c2){
-				t = c2;
-				c2 = c1;
-				c1 = t;		
-			}
-
-			for( var r = r1; r <= r2; r++){														//---------------------NEED TO FIX  TO WORK FOR A BACKWARD SELECTION!!!!
-				for( var c = c1; c <= c2; c++){
-					var str = ''+r+'-'+c;
-					//cell = getElementById(''+r+'-'+c);	
-					cell = document.getElementById(""+r+"-"+c+"-"+t);								//need 'document.' becuse the getElementId need to know where to get the elemebyById from.
-					if( timeStatus == 0){
-						setTimeStatusHorrible(cell);	
+			if( t1 == t2){																							//Same table check
+					//----this will allow revese slection (bottom right to top left)---JUST SWAPPING THE VARIABLES
+					if(r1>r2){
+						temp = r2;
+						r2 = r1;
+						r1 = temp;	
 					}
-					else if(timeStatus == 1){
-						setTimeStatusBad(cell);	
+					if(c1 > c2){
+						temp = c2;
+						c2 = c1;
+						c1 = temp;		
 					}
-					else if(timeStatus == 2){
-						setTimeStatusGood(cell);
+					for( var r = r1; r <= r2; r++){														//---------------------NEED TO FIX  TO WORK FOR A BACKWARD SELECTION!!!!
+						for( var c = c1; c <= c2; c++){
+							//var str = ''+r+'-'+c;
+							//cell = getElementById(''+r+'-'+c);	
+							cell = document.getElementById(""+r+"-"+c+"-"+t2);								//need 'document.' becuse the getElementId need to know where to get the elemebyById from.
+							//alert("cell.id = " + cell.id);
+							setTimeStatus(cell, t2);
+						}
 					}
-					else if(timeStatus == 3){
-						setTimeStatusAwesome(cell);	
-					}
-				}
 			}
 		}
 	}
 	else{
 		//----do single selection here............DO NOT HAVE TO USE r1 and c1 vars
-		if( timeStatus == 0){
-			setTimeStatusHorrible(td);	
-		}
-		else if(timeStatus == 1){
-			setTimeStatusBad(td);	
-		}
-		else if(timeStatus == 2){
-			setTimeStatusGood(td);
-		}
-		else if(timeStatus == 3){
-			setTimeStatusAwesome(td);	
-		}
+		setTimeStatus(td,t2);
 	}
 	firstClick = !firstClick; 
 }
+
+
+
+function setTimeStatus(td, table){
+	if(table == 1){
+			//alert("setTimeStatus running: table = " + table);
+			if( timeStatus1 == 0){
+				setTimeStatusHorrible();	
+			}
+			else if(timeStatus1 == 1){
+				setTimeStatusBad(td);	
+			}
+			else if(timeStatus1 == 2){
+				setTimeStatusGood(td);
+			}
+			else if(timeStatus1 == 3){
+				setTimeStatusAwesome(td);	
+			}
+	}
+	else if(table == 2){
+			//alert("setTimeStatus running: table = " + table);
+			if( timeStatus2 == 0){
+				setTimeStatusHorrible(td);	
+			}
+			else if(timeStatus2 == 1){
+				setTimeStatusBad(td);	
+			}
+			else if(timeStatus2 == 2){
+				setTimeStatusGood(td);
+			}
+			else if(timeStatus2 == 3){
+				setTimeStatusAwesome(td);	
+			}
+	}		
+}
+
 
 
 function applyTimeStatusDay(td){
@@ -110,35 +129,31 @@ function applyTimeStatusDay(td){
 	for( var rIdx = 0; rIdx <= r; rIdx++){					
 		var str = ''+rIdx+'-'+c;
 		cell = document.getElementById(""+rIdx+"-"+c+"-"+t);								//need 'document.' becuse the getElementId need to know where to get the elemebyById from.
-		if( timeStatus == 0){
-			setTimeStatusHorrible(cell);	
-		}
-		else if(timeStatus == 1){
-			setTimeStatusBad(cell);	
-		}
-		else if(timeStatus == 2){
-			setTimeStatusGood(cell);
-		}
-		else if(timeStatus == 3){
-			setTimeStatusAwesome(cell);	
-		}
+		setTimeStatus(cell, t);
 	}
 }
 
 
-function setSelectionStatus(intVal){
+function setSelectionStatus(ssn, intVal){
 	if((r1 > -1) && (c1>-1)){
-		var cell =document.getElementById(""+r1+"-"+c1);
+		var cell =document.getElementById(""+r1+"-"+c1+"-"+t1);
 		cell.style.border = "solid 0px #000";
 		cell.style.fontWeight =  "normal";	
+		r1 = -1;
+		c1 = -1;
+		t1 = -1;
 	}
 	firstClick = true;
-	selectionStatus = intVal;	
+	if(ssn==1){
+		selectionStatus1 = intVal;	
+		// alert("ssn1 = " + intVal);
+	}
+	else if(ssn==2){
+		selectionStatus2 = intVal;	
+		// alert("ssn2 = " + intVal);
+	}
 }
 
-function setTimeStatus(intVal){
-	timeStatus = intVal;
-}
 
 function setTimeStatusAwesome(td){
 	td.className = "A";
@@ -156,37 +171,78 @@ function setTimeStatusHorrible(td){
 	td.className = "H";
 }
 
-			
-$('#selectionStatusFlip').change(function() {									//$(....) = do jquery magic			'#<element id>'  = like getElementById
 	
-    var myswitch = $(this);
-    var stickyOption  = myswitch[0].selectedIndex == 1 ? true:false;
-	if(stickyOption){
-       setSelectionStatus(1);
-	}else{
-		setSelectionStatus(2);
-	}
+
+$(document).ready(function(){	
+	//This will respond to the EDIT SCHEDULE switch
+	$('#selectionStatusFlip1').change(function() {									//$(....) = do jquery magic			'#<element id>'  = like getElementById
+		var myswitch = $(this);
+		var stickyOption  = myswitch[0].selectedIndex == 1 ? true:false;
+		if(stickyOption){
+		   setSelectionStatus(1,1);
+		}else{
+			setSelectionStatus(1,2);
+		}
+	});
 });
 
 $(document).ready(function(){
-	$('#timeStatusButtons input:radio').change(function (event, ui){
+	//This will respond to the JOIN SCHEDULE switch
+	$('#selectionStatusFlip2').change(function() {									//$(....) = do jquery magic			'#<element id>'  = like getElementById	
+		var myswitch = $(this);
+		var stickyOption  = myswitch[0].selectedIndex == 1 ? true:false;
+		if(stickyOption){
+		   setSelectionStatus(2,1);
+		}else{
+			setSelectionStatus(2,2);
+		}
+	});
+});
+
+
+$(document).ready(function(){
+	$('#timeStatusButtonsEdit input:radio').change(function (event, ui){
 		//alert("radio change");	
 		//alert($(this).val());  / <----this shows value before change
 		//alert($('input[name=radio-group-1]:checked').val());			//<----this shows the value after change
 		var selection = $('input[name=radio-group-1]:checked').val();
 		if(selection == 'choice-0'){
-				timeStatus = 0;
+				timeStatus1 = 0;
 		}
 		else if(selection == 'choice-1'){
-				timeStatus = 1;
+				timeStatus1 = 1;
 		}
 		else if(selection == 'choice-2'){
-				timeStatus = 2;
+				timeStatus1 = 2;
 		}
 		else if(selection == 'choice-3'){
-				timeStatus = 3;
+				timeStatus1 = 3;
 		}
 		
+	});
+});
+
+
+$(document).ready(function(){
+	$('#timeStatusButtonsJoin input:radio').change(function (event, ui){
+			//alert("radio change");	
+			//alert($(this).val());  / <----this shows value before change
+			//alert($('input[name=radio-group-1]:checked').val());			//<----this shows the value after change
+			var selection = $('input[name=radio-group-1]:checked').val();
+			if(selection == 'choice-0'){
+					timeStatus2 = 0;
+			}
+			else if(selection == 'choice-1'){
+					timeStatus2 = 1;
+			}
+			else if(selection == 'choice-2'){
+					timeStatus2 = 2;
+			}
+			else if(selection == 'choice-3'){
+					timeStatus2 = 3;
+			}		
+			//alert("timeStatus1 = " + timeStatus1);
+			//alert("timeStatus2 = " + timeStatus2);
 	});
 });
 
