@@ -4,145 +4,117 @@
 	<![CDATA[     TODO Comments Here   ]]>
 	</description>
 
+	<command id='WAWfrontDoor' security='public'>
+		<description>
+			<![CDATA[     TODO Comments Here   ]]>
+		</description>
+
+		<get>
+			<description>
+				<![CDATA[	TODO	]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[getSchedulesForUser($_REST['WAWfrontDoor']);]]>
+			</action>
+		</get>
+
+	</command>
+	
+		<command id='WAWeditString' security='public'>
+		<description>
+			<![CDATA[     TODO Comments Here   ]]>
+		</description>
+
+		<get>
+			<description>
+				<![CDATA[	TODO	]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[getEditStringByID($_REST['WAWeditString']);]]>
+			</action>
+		</get>
+
+		<post>
+			<description>
+				<![CDATA[	TODO	]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[addEditString($_POST['userID'], $_POST['editStr'], 
+						$_POST['alias']);]]>
+			</action>
+		</post>
+
+		<put>
+			<description>
+				<![CDATA[	TODO	]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[updateEditString($_REST['gridID'], $_POST['userID'], 
+						$_POST['editStr'], $_POST['alias']);]]>
+			</action>
+		</put>
+
+	</command>
+
+	<command id='WAWresultsTable' security='public'>
+		<description>
+			<![CDATA[     TODO Comments Here   ]]>
+		</description>
+
+		<get>
+			<description>
+				<![CDATA[	TODO	]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[getResultsTable($_REST['WAWresultsTable']);]]>
+			</action>
+		</get>
+
+		<post>
+			<description>
+				<![CDATA[	TODO	]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[getIncompleteResultsTable($_REST['WAWresultsTable'], 
+						$_POST['includedUsers']);]]>
+			</action>
+		</post>
+
+	</command>
+
 	<command id='WAWschedule' security='public'>
 		<description>
 			<![CDATA[     TODO Comments Here   ]]>
 		</description>
 
-		<index>
-			<description>
-				<![CDATA[Provides valid information to the user from the GtWAW 
-					developers/staff.]]>
-			</description>
-			<action file='GtWAWpublic.php'>
-				<![CDATA[scheduleIndex();]]>
-			</action>
-		</index>
-
 		<get>
 			<description>
-				<![CDATA[Provides a list URL's for schedule results for given 
-					user.]]>
+				<![CDATA[	TODO	]]>
 			</description>
 			<action file='GtWAWpublic.php'>
-				<![CDATA[scheduleList($_REST['WAWschedule']);]]>
+				<![CDATA[getScheduleByID($_REST['WAWschedule']);]]>
 			</action>
 		</get>
 
 		<post>
 			<description>
-				<![CDATA[Adds a new schedule to the databse. Returns a key value 
-					pair of the created schedule or an error message.]]>
+				<![CDATA[	TODO	]]>
 			</description>
 			<action file='GtWAWpublic.php'>
-				<![CDATA[scheduleAddNew($_POST['loggedInUserID'], 
-					$_POST['startDate'], $_POST['endDate'], $_POST['alias'], 
-					$_POST['type']);]]>
+				<![CDATA[addSchedule($_POST['userID'], 
+					$_POST['editStr'], $_POST['alias']);]]>
 			</action>
 		</post>
 
 		<put>
 			<description>
-				<![CDATA[Updates provided schdule with new information. Returns 
-					the updated object or error message.]]>
+				<![CDATA[	TODO	]]>
 			</description>
 			<action file='GtWAWpublic.php'>
-				<![CDATA[scheduleUpdate($_POST['scheduleID'], $_POST['loggedInUserID'], 
-					$_POST['startDate'], $_POST['endDate'], $_POST['alias'], 
-					$_POST['type']);]]>
+				<![CDATA[getScheduleByAlias($_POST['alias']);]]>
 			</action>
 		</put>
 
 	</command>
-	
-	<command id='WAWgrid' security='public'>
-		<description>
-			<![CDATA[     TODO Comments Here   ]]>
-		</description>
 
-		<get>
-			<description>
-				<![CDATA[Returns a grid object with the specified id.]]>
-			</description>
-			<action file='GtWAWpublic.php'>
-				<![CDATA[gridRetrieve($_REST['WAWgrid']);]]>
-			</action>
-		</get>
-
-		<post>
-			<description>
-				<![CDATA[Adds a new grid to the databse. Returns a key value 
-					pair of the created grid upon success or an error message.]]>
-			</description>
-			<action file='GtWAWpublic.php'>
-				<![CDATA[gridAddNew($_POST['loggedInUserID'], 
-					$_POST['scheduleID'], $_POST['data'], $_POST['comments']);]]>
-			</action>
-		</post>
-
-		<put>
-			<description>
-				<![CDATA[Updates provided grid with new information. Returns 
-					the updated object upon success or error message.]]>
-			</description>
-			<action file='GtWAWpublic.php'>
-				<![CDATA[gridUpdate($_POST['gridID'], $_POST['loggedInUserID'], 
-					$_POST['scheduleID'], $_POST['data'], $_POST['comments']);]]>
-			</action>
-		</put>
-
-		<delete>
-			<description>
-				<![CDATA[Removes the provided grid from the schedule. Returns a
-					success or error message.]]>
-			</description>
-			<action file='GtWAWpublic.php'>
-				<![CDATA[gridDelete($_POST['gridID'], $_POST['loggedInUserID'], 
-					$_POST['scheduleID']);]]>
-			</action>
-		</delete>
-
-	</command>
-
-
-	<command id='WAWuser' security='public'>
-		<description>
-			<![CDATA[     TODO Comments Here   ]]>
-		</description>
-
-		<get>
-			<description>
-				<![CDATA[Returns a user with provided credentials. Valid credentials 
-					include 'id' and 'email'.]]>
-			</description>
-			<action file='GtWAWpublic.php'>
-				<![CDATA[userGetByCredentials($_REST['WAWuser']);]]>
-			</action>
-		</get>
-
-		<post>
-			<description>
-				<![CDATA[Creates a new user. Returns the created object as a key-value 
-					pair or returns an error message. Emails must be unique.]]>
-			</description>
-			<action file='GtWAWpublic.php'>
-				<![CDATA[userAddNew($_POST['name'], $_POST['email'], $_POST['password'], 
-					$_POST['pullDataFromTSquare']);]]>
-			</action>
-		</post>
-
-		<put>
-			<description>
-				<![CDATA[Updates a user with the provided information. Returns the 
-					created object as a key-value pair or returns an error message. 
-					Emails must be unique.]]>
-			</description>
-			<action file='GtWAWpublic.php'>
-				<![CDATA[userUpdate($_POST['loggedInUserID'], $_POST['toEditUserID'], 
-					$_POST['name'], $_POST['email'], $_POST['password'], 
-					$_POST['pullDataFromTSquare']););]]>
-			</action>
-		</put>
-
-	</command>
 </api>

@@ -1,78 +1,103 @@
 <?php
 
 include_once "scripts/GtIsGoodServices.php";
-include_once "scripts/GtIsGoodServices.php";
+include_once "scripts/GtIsGoodObjects.php";
 
-	function scheduleIndex() {
+/**
+ *	WAWfrontDoor
+ */
+	function getSchedulesForUser($userID) {
 		// TODO
-		echo 'This will be useful information provided to the users.';
-	}
-
-	function scheduleList($id) {
-		// TODO
-		$arr = getAllSchedulesByCreator($id);
+		$arr = getAllSchedulesByCreator($id); 
 		if ($arr)
-			echo json_encode($arr);
-		echo json_encode({'error' : 'Error finding schedules for the current user.'});
+			echo json_encode(array('html'=>convertUsersToCheckList($arr););
+		else
+			echo json_encode(array('error'=>'Error finding schedules for the current user.'));
 	}
 
-	function scheduleAddNew($loggedInUserID, $startDate, $endDate, $alias, $type) {
+/**
+ *	WAWeditString
+ */
+	function getEditStringById($gridID) {
 		// TODO
-		$startDate = stringToDate($startDate);
-		$endDate = stringToDate($endDate);
-		$sch = createSchedule(new GTIGSchedule(-1, $loggedInUserID, $startDate, $endDate, $alias, $type));
+		$grid = getGridById($gridID);
+		if ($grid)
+			echo json_encode($grid->data);
+		else 
+			echo json_encode(array('error':'TODO'));
+	}
+
+	function addEditString($userID, $editStr, $alias); {
+		// TODO
+		$grid = createGrid(new GTIGGrid(-1, $userID, "schedule", $editStr, ''), $schId, $userId)
+		if ($grid)
+			echo json_encode(array('grid'=>$grid));
+		else
+			echo json_encode(array('error'=>'TODO'));
+	}
+
+	function updateEditString($gridID, $userID, $editStr, $alias); {
+		// TODO
+		$grid = createGrid(new GTIGGrid($gridID, $userID, "schedule", $editStr, ''), $schId, $userId)
+		if ($grid)
+			echo json_encode(array('grid'=>$grid));
+		else
+			echo json_encode(array('error'=>'TODO'));
+		
+	}
+
+/**
+ *	WAWresultsTable
+ */
+	function getResultsTable($schID) {
+		// TODO
+		$sch = getScheduleById($schID);
 		if ($sch) {
-			echo json_encode($sch);
+			echo json_encode(array('html'=>getPersistantResults($sch));
 		} else
-			echo json_encode({'error' : 'There was an error creating the new schedule. Please try again later.'});
+			echo json_encode('error'=>'TODO');
 	}
 
-	function scheduleUpdate($scheduleID, $loggedInUserID, $startDate, $endDate, $alias, $type) {
+	function getIncompleteResultsTable($schID, $includedUsers) {
 		// TODO
-		$startDate = stringToDate($startDate);
-		$endDate = stringToDate($endDate);
-		$sch = createSchedule(new GTIGSchedule($scheduleID, -1, $startDate, $endDate, $alias, $type), $loggedInUserID);
+		$sch = getScheduleById($schID);
 		if ($sch) {
-			echo json_encode($sch);
+			echo json_encode(array('html'=>getPersistantResults($sch, $includedUserIDs));
 		} else
-			echo json_encode({'error':'There was an error updating the schedule. Please try again later.'});
+			echo json_encode('error'=>'TODO');
 	}
 
-	function gridRetrieve($gridID) {
+/**
+ *	WAWschedule
+ */
+	function getScheduleById($schID) {
 		// TODO
-		$grid = getGridById($gid);
-		if ($grid) 
-			echo json_encode($grid);
-		echo json_encode({'error' : 'Error finding the requested grid.'});
+		$sch = getScheduleById($schID);
+		if ($sch) {
+			echo json_encode(array($sch);
+		} else
+			echo json_encode(array('error'=>'TODO'));
 	}
 
-	function gridAddNew($loggedInUserID, $scheduleID, $data, $comments) {
+	function addSchedule($userId, $editStr, $alias) {
 		// TODO
-		echo 'gridAddNew($loggedInUserID, $scheduleID, $data, $comments)\n';
+		$startDate = 0;
+		$endDate = 0;
+		$sch = createSchedule(new GTIGSchedule(-1, $userID, 0, 0, $alias, '1hour'));
+		if ($sch) {
+			$grid = createGrid(new GTIGGrid(-1, $userID, 'userSchedule', $editStr, '');
+			echo json_encode(array('html'=>convertScheduleToLink($sch));
+		} else
+			echo json_encode(array('error'=>'There was an error creating the new schedule. Please try again later.'));
 	}
 
-	function gridUpdate($gridID, $loggedInUserID, $scheduleID, $data, $comments) {
+	function getScheduleByAlias($alias) {
 		// TODO
-		echo 'gridUpdate($gridID, $loggedInUserID, $scheduleID, $data, $comments)\n';
+		$sch = getScheduleByAlias($schID);
+		if ($sch) {
+			echo json_encode(array($sch);
+		} else
+			echo json_encode(array('error'=>'TODO'));
 	}
 
-	function gridDelete($gridID, $loggedInUserID, $scheduleID) {
-		// TODO
-		echo 'gridDelete($gridID, $loggedInUserID, $scheduleID)\n';
-	}
-
-	function userGetByCredentials($credentials) {
-		// TODO
-		echo 'userGetByCredentials($credentials)\n';
-	}
-
-	function userAddNew($name, $email, $password, $pullDataFromTSquare) {
-		// TODO
-		echo 'userAddNew($name, $email, $password, $pullDataFromTSquare)\n';
-	}
-
-	function userUpdate($loggedInUserID, $toEditUserID, $name, $email, $password) {
-		// TODO
-		echo 'userUpdate($loggedInUserID, $toEditUserID, $name, $email, $password)\n';
-	}
 ?>

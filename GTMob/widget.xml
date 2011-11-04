@@ -5,7 +5,7 @@
 	<library name="gtmob" />
 	<icon file="images/icon.png" />
 	<css file="GtWAW.css" />
-	<html file="GtWAW.html" />
+	<html file="GtWAW_test.html" />
 	<javascript file="GtWAW.js" />
 	<javascript file="GtWAW_api.js" />
 </widget>
