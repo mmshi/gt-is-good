@@ -270,7 +270,7 @@ $(document).ready(function(){
 	//This will respond to the EDIT SCHEDULE switch
 	$('#selectionStatusFlip1').change(function() {									//$(....) = do jquery magic			'#<element id>'  = like getElementById
 		var myswitch = $(this);
-		var stickyOption  = myswitch[0].selectedIndex == 1 ? true:false;
+		var stickyOption  = myswitch[0].selectedIndex == 0 ? true:false;
 		if(stickyOption){
 		   setSelectionStatus(1,1);
 		}else{
@@ -283,7 +283,7 @@ $(document).ready(function(){
 	//This will respond to the JOIN SCHEDULE switch
 	$('#selectionStatusFlip2').change(function() {									//$(....) = do jquery magic			'#<element id>'  = like getElementById	
 		var myswitch = $(this);
-		var stickyOption  = myswitch[0].selectedIndex == 1 ? true:false;
+		var stickyOption  = myswitch[0].selectedIndex == 0 ? true:false;
 		if(stickyOption){
 		   setSelectionStatus(2,1);
 		}else{
@@ -296,7 +296,7 @@ $(document).ready(function(){
 	//This will respond to the JOIN SCHEDULE switch
 	$('#selectionStatusFlip3').change(function() {									//$(....) = do jquery magic			'#<element id>'  = like getElementById	
 		var myswitch = $(this);
-		var stickyOption  = myswitch[0].selectedIndex == 1 ? true:false;
+		var stickyOption  = myswitch[0].selectedIndex == 0 ? true:false;
 		if(stickyOption){
 		   setSelectionStatus(3,1);
 		}else{
