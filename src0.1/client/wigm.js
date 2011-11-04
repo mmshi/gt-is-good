@@ -274,11 +274,15 @@ $(document).ready(function(){
 	});
 });
 $(document).ready(function(){
+		//++++++++++++++++++++++++++++++++++++++ NOTE!!!! IF RADIO BUTTONS STOP WORKING ON 1ST CLICK, UNCOMMENT ALERTS, SAVE, RUN, COMMENT OUT ALERTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		//++++++++++++++++++++++++++++++++++++++ NOTE!!!! IF RADIO BUTTONS STOP WORKING ON 1ST CLICK, UNCOMMENT ALERTS, SAVE, RUN, COMMENT OUT ALERTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		//++++++++++++++++++++++++++++++++++++++ NOTE!!!! IF RADIO BUTTONS STOP WORKING ON 1ST CLICK, UNCOMMENT ALERTS, SAVE, RUN, COMMENT OUT ALERTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	$('#timeStatusButtonsEdit input:radio').change(function (event, ui){
 		//alert("radio change");	
 		//alert($(this).val());  / <----this shows value before change
 		//alert($('input[name=radio-group-1]:checked').val());			//<----this shows the value after change
 		var selection = $('input[name=radio-group-1]:checked').val();
+		//alert("1-timeStatus3 = " + timeStatus
 		if(selection == 'choice-0'){
 				timeStatus1 = 0;
 		}
@@ -319,23 +323,32 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
+		//++++++++++++++++++++++++++++++++++++++ NOTE!!!! IF RADIO BUTTONS STOP WORKING ON 1ST CLICK, UNCOMMENT ALERTS, SAVE, RUN, COMMENT OUT ALERTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		//++++++++++++++++++++++++++++++++++++++ NOTE!!!! IF RADIO BUTTONS STOP WORKING ON 1ST CLICK, UNCOMMENT ALERTS, SAVE, RUN, COMMENT OUT ALERTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		//++++++++++++++++++++++++++++++++++++++ NOTE!!!! IF RADIO BUTTONS STOP WORKING ON 1ST CLICK, UNCOMMENT ALERTS, SAVE, RUN, COMMENT OUT ALERTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	$('#timeStatusButtonsJoin input:radio').change(function (event, ui){
 			//alert("radio change");	
 			//alert($(this).val());  / <----this shows value before change
 			//alert($('input[name=radio-group-1]:checked').val());			//<----this shows the value after change
+			//alert("1-timeStatus3 = " + timeStatus3);
 			var selection = $('input[name=radio-group-1]:checked').val();
 			if(selection == 'choice-0'){
 					timeStatus3 = 0;
+				//	alert("SET timeStatus3 = " + timeStatus3);
 			}
 			else if(selection == 'choice-1'){
 					timeStatus3 = 1;
+					//alert("SET timeStatus3 = " + timeStatus3);
 			}
 			else if(selection == 'choice-2'){
 					timeStatus3 = 2;
+					//alert("SET timeStatus3 = " + timeStatus3);
 			}
 			else if(selection == 'choice-3'){
 					timeStatus3 = 3;
+					//alert("SET timeStatus3 = " + timeStatus3);
 			}		
+			//alert("2-timeStatus3 = " + timeStatus3);
 			//alert("timeStatus1 = " + timeStatus1);
 			//alert("timeStatus2 = " + timeStatus2);
 	});
