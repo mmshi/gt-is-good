@@ -29,9 +29,9 @@
   		<ul data-role="listview" data-theme="g">
 
 			<!--ERROR BECAUSE IT'S TRYING TO ACCESS AN HTML PAGE!  FIX LATER!  -->
-			<li><a href="acura.html">Acura</a></li>
-			<li><a href="audi.html">Audi</a></li>
-			<li><a href="bmw.html">BMW</a></li>
+			<li data-icon="false"><a href="#">list element 1</a></li>
+			<li data-icon="false"><a href="#">list element 2</a></li>
+			<li data-icon="false"><a href="#">list element 3</a></li>
 		</ul>
 	</div>
 
@@ -253,9 +253,16 @@
 		</script>
 
 
-		<div timeBox1>
+		<div timeBox1 data-role="fieldcontain">
+		
+			<label for="sTimeFTS"></label>
+			<select name="slider" id="sTimeFTS" data-role="slider">
+				<option value="am">A.M.</option>
+				<option value="ps">P.M.</option>
+			</select> 
+		
 			<label for="opt1" class="select">Start Time</label>
-			<select name="combobox" id="sTime">
+			<select name="combobox" id="sTimeCombo">
 			    <option value="12">12:00</option>
 			    <option value="1">1:00</option>
 			    <option value="2">2:00</option>
@@ -269,11 +276,21 @@
 			    <option value="10">10:00</option>
 			    <option value="11">11:00</option>
 			</select>
+			
+			
+			<label for="eTimeFTS"></label>
+			<select name="slider" id="eTimeFTS" data-role="slider">
+				<option value="am">A.M.</option>
+				<option value="ps">P.M.</option>
+			</select> 
+
+			
+			
 		</div>
 
-		<div timeBox2>
+		<div timeBox2 data-role="fieldcontain">
 			<label for="opt2" class="select">End Time</label>
-			<select name="combobox" id="sTime">
+			<select name="combobox" id="eTimeCombo">
 			    <option value="12">12:00</option>
 			    <option value="1">1:00</option>
 			    <option value="2">2:00</option>
