@@ -2,8 +2,10 @@
 
 var selectionStatus1 = 1;	// 1 = SINGLE; 2 = STICKY
 var selectionStatus2 = 1;	// 1 = SINGLE; 2 = STICKY
+var selectionStatus3 = 1;	// 1 = SINGLE; 2 = STICKY
 var timeStatus1 =  2;		// 0 = BAD, 1 = Bad, 2 = Good, 3 = GOOD
 var timeStatus2 =  2;		// 0 = BAD, 1 = Bad, 2 = Good, 3 = GOOD
+var timeStatus3 =  2;		// 0 = BAD, 1 = Bad, 2 = Good, 3 = GOOD
 var firstClick = true;		// tracks first click, second click for sticky function
 
 var r1 = -1;				// tracks first click (row) for sticky function
@@ -28,7 +30,7 @@ function applyTimeStatus(td){
 	c2 = Number(sId[1]);
 	t2 = Number(sId[2]);
 
-	if( (((t2 ==1) && (selectionStatus1 == 2))  ||  (((t2 ==2) && (selectionStatus2 == 2)))) )  {
+	if(  ((t2 ==1) && (selectionStatus1 == 2))  ||  ((t2 ==2) && (selectionStatus2 == 2))  ||   ((t2 ==3) && (selectionStatus3 == 2))  )  {
 		if(firstClick){
 			//----do sticky section here	
 			sId = (td.id).split("-");
@@ -114,19 +116,25 @@ function setSelectionStatus(ssn, intVal){
 	firstClick = true;
 	if(ssn==1){
 		selectionStatus1 = intVal;	
-		// alert("ssn1 = " + intVal);
 	}
 	else if(ssn==2){
-		selectionStatus2 = intVal;	
-		// alert("ssn2 = " + intVal);
+		selectionStatus2 = intVal;	;
+	}
+	else if(ssn==3){
+		selectionStatus3 = intVal;	
 	}
 }
 
 
 
 function setTimeStatus(td, table){
+	/*
+	alert("setTimeStatus running: table = " + table);
+	alert("timeStatus1 = " + timeStatus1);
+	alert("timeStatus2 = " + timeStatus2);
+	alert("timeStatus3 = " + timeStatus3);
+	*/
 	if(table == 1){
-			//alert("setTimeStatus running: table = " + table);
 			if( timeStatus1 == 0){
 				setTimeStatusHorrible(td);	
 			}
@@ -154,7 +162,22 @@ function setTimeStatus(td, table){
 			else if(timeStatus2 == 3){
 				setTimeStatusAwesome(td);	
 			}
-	}		
+	}
+	else if(table == 3){
+			//alert("setTimeStatus running: table = " + table);
+			if( timeStatus3 == 0){
+				setTimeStatusHorrible(td);	
+			}
+			else if(timeStatus3 == 1){
+				setTimeStatusBad(td);	
+			}
+			else if(timeStatus3 == 2){
+				setTimeStatusGood(td);
+			}
+			else if(timeStatus3 == 3){
+				setTimeStatusAwesome(td);	
+			}
+	}				
 }
 
 
@@ -173,103 +196,6 @@ function setTimeStatusBad(td){
 function setTimeStatusHorrible(td){
 	td.className = "H";
 }
-
-	
-
-$(document).ready(function(){	
-	//This will respond to the EDIT SCHEDULE switch
-	$('#selectionStatusFlip1').change(function() {									//$(....) = do jquery magic			'#<element id>'  = like getElementById
-		var myswitch = $(this);
-		var stickyOption  = myswitch[0].selectedIndex == 1 ? true:false;
-		if(stickyOption){
-		   setSelectionStatus(1,1);
-		}else{
-			setSelectionStatus(1,2);
-		}
-	});
-});
-
-$(document).ready(function(){
-	//This will respond to the JOIN SCHEDULE switch
-	$('#selectionStatusFlip2').change(function() {									//$(....) = do jquery magic			'#<element id>'  = like getElementById	
-		var myswitch = $(this);
-		var stickyOption  = myswitch[0].selectedIndex == 1 ? true:false;
-		if(stickyOption){
-		   setSelectionStatus(2,1);
-		}else{
-			setSelectionStatus(2,2);
-		}
-	});
-});
-
-
-$(document).ready(function(){
-	$('#timeStatusButtonsEdit input:radio').change(function (event, ui){
-		//alert("radio change");	
-		//alert($(this).val());  / <----this shows value before change
-		//alert($('input[name=radio-group-1]:checked').val());			//<----this shows the value after change
-		var selection = $('input[name=radio-group-1]:checked').val();
-		if(selection == 'choice-0'){
-				timeStatus1 = 0;
-		}
-		else if(selection == 'choice-1'){
-				timeStatus1 = 1;
-		}
-		else if(selection == 'choice-2'){
-				timeStatus1 = 2;
-		}
-		else if(selection == 'choice-3'){
-				timeStatus1 = 3;
-		}
-		
-	});
-});
-
-
-$(document).ready(function(){
-	$('#timeStatusButtonsJoin input:radio').change(function (event, ui){
-			//alert("radio change");	
-			//alert($(this).val());  / <----this shows value before change
-			//alert($('input[name=radio-group-1]:checked').val());			//<----this shows the value after change
-			var selection = $('input[name=radio-group-1]:checked').val();
-			if(selection == 'choice-0'){
-					timeStatus2 = 0;
-			}
-			else if(selection == 'choice-1'){
-					timeStatus2 = 1;
-			}
-			else if(selection == 'choice-2'){
-					timeStatus2 = 2;
-			}
-			else if(selection == 'choice-3'){
-					timeStatus2 = 3;
-			}		
-			//alert("timeStatus1 = " + timeStatus1);
-			//alert("timeStatus2 = " + timeStatus2);
-	});
-});
-
-$('#resultsEditSlider1').change(function(){
-	var thisSwitch = $(this);
-	var show1 = thisSwitch[0].selectedIndex == 1? true:false;
-	var show2 = thisSwitch[0].selectedIndex == 1? false:true;
-	$('#resultTable').toggle(show1);
-	$('#editResultTable').toggle(show2);
-	
-	/*
-	if(show == true){
-		//set resutls to show and hide edit schedule
-		$('#resultTable').toggle(show);
-	}
-	else{
-		//set hide to show and results edit schedule
-		$('#editResultTable').toggle(show);
-	}
-	*/
-
-	
-	
-});
 
 function generateString(tableNo) {
 	var toRet = "";
@@ -305,3 +231,134 @@ function applyString(str, tableNo) {
 		}
 	}
 }
+
+
+	
+
+$(document).ready(function(){	
+	//This will respond to the EDIT SCHEDULE switch
+	$('#selectionStatusFlip1').change(function() {									//$(....) = do jquery magic			'#<element id>'  = like getElementById
+		var myswitch = $(this);
+		var stickyOption  = myswitch[0].selectedIndex == 1 ? true:false;
+		if(stickyOption){
+		   setSelectionStatus(1,1);
+		}else{
+			setSelectionStatus(1,2);
+		}
+	});
+});
+
+$(document).ready(function(){
+	//This will respond to the JOIN SCHEDULE switch
+	$('#selectionStatusFlip2').change(function() {									//$(....) = do jquery magic			'#<element id>'  = like getElementById	
+		var myswitch = $(this);
+		var stickyOption  = myswitch[0].selectedIndex == 1 ? true:false;
+		if(stickyOption){
+		   setSelectionStatus(2,1);
+		}else{
+			setSelectionStatus(2,2);
+		}
+	});
+});
+
+$(document).ready(function(){
+	//This will respond to the JOIN SCHEDULE switch
+	$('#selectionStatusFlip3').change(function() {									//$(....) = do jquery magic			'#<element id>'  = like getElementById	
+		var myswitch = $(this);
+		var stickyOption  = myswitch[0].selectedIndex == 1 ? true:false;
+		if(stickyOption){
+		   setSelectionStatus(3,1);
+		}else{
+			setSelectionStatus(3,2);
+		}
+	});
+});
+$(document).ready(function(){
+	$('#timeStatusButtonsEdit input:radio').change(function (event, ui){
+		//alert("radio change");	
+		//alert($(this).val());  / <----this shows value before change
+		//alert($('input[name=radio-group-1]:checked').val());			//<----this shows the value after change
+		var selection = $('input[name=radio-group-1]:checked').val();
+		if(selection == 'choice-0'){
+				timeStatus1 = 0;
+		}
+		else if(selection == 'choice-1'){
+				timeStatus1 = 1;
+		}
+		else if(selection == 'choice-2'){
+				timeStatus1 = 2;
+		}
+		else if(selection == 'choice-3'){
+				timeStatus1 = 3;
+		}
+		
+	});
+});
+
+$(document).ready(function(){
+	$('#timeStatusButtonsCreate input:radio').change(function (event, ui){
+		//alert("radio change");	
+		//alert($(this).val());  / <----this shows value before change
+		//alert($('input[name=radio-group-1]:checked').val());			//<----this shows the value after change
+		var selection = $('input[name=radio-group-1]:checked').val();
+		if(selection == 'choice-0'){
+				timeStatus2 = 0;
+		}
+		else if(selection == 'choice-1'){
+				timeStatus2 = 1;
+		}
+		else if(selection == 'choice-2'){
+				timeStatus2 = 2;
+		}
+		else if(selection == 'choice-3'){
+				timeStatus2 = 3;
+		}
+		
+	});
+});
+
+
+$(document).ready(function(){
+	$('#timeStatusButtonsJoin input:radio').change(function (event, ui){
+			//alert("radio change");	
+			//alert($(this).val());  / <----this shows value before change
+			//alert($('input[name=radio-group-1]:checked').val());			//<----this shows the value after change
+			var selection = $('input[name=radio-group-1]:checked').val();
+			if(selection == 'choice-0'){
+					timeStatus3 = 0;
+			}
+			else if(selection == 'choice-1'){
+					timeStatus3 = 1;
+			}
+			else if(selection == 'choice-2'){
+					timeStatus3 = 2;
+			}
+			else if(selection == 'choice-3'){
+					timeStatus3 = 3;
+			}		
+			//alert("timeStatus1 = " + timeStatus1);
+			//alert("timeStatus2 = " + timeStatus2);
+	});
+});
+
+$('#resultsEditSlider1').change(function(){
+	var thisSwitch = $(this);
+	var show1 = thisSwitch[0].selectedIndex == 1? true:false;
+	var show2 = thisSwitch[0].selectedIndex == 1? false:true;
+	$('#resultTable').toggle(show1);
+	$('#editResultTable').toggle(show2);
+	
+	/*
+	if(show == true){
+		//set resutls to show and hide edit schedule
+		$('#resultTable').toggle(show);
+	}
+	else{
+		//set hide to show and results edit schedule
+		$('#editResultTable').toggle(show);
+	}
+	*/
+
+	
+	
+});
