@@ -24,17 +24,17 @@ function applyTimeStatus(td){
 	var t2;
 	
 	sId = (td.id).split("-");
-	r2 = sId[0];
-	c2 = sId[1];
-	t2 = sId[2];
+	r2 = Number(sId[0]);
+	c2 = Number(sId[1]);
+	t2 = Number(sId[2]);
 
 	if( (((t2 ==1) && (selectionStatus1 == 2))  ||  (((t2 ==2) && (selectionStatus2 == 2)))) )  {
 		if(firstClick){
 			//----do sticky section here	
 			sId = (td.id).split("-");
-			r1 = sId[0];
-			c1 = sId[1];
-			t1 = sId[2];
+			r1 = Number(sId[0]);
+			c1 = Number(sId[1]);
+			t1 = Number(sId[2]);
 			td.style.border = "solid 1px #000";
 			td.style.fontWeight =  "bolder";	
 		}
@@ -48,12 +48,19 @@ function applyTimeStatus(td){
 			
 			if( t1 == t2){																							//Same table check
 					//----this will allow revese slection (bottom right to top left)---JUST SWAPPING THE VARIABLES
-					if(r1>r2){
+					//FORCE THIS SHIT TO WORK USING NUMBERS
+					//r1 = Number(r1);
+					//r2 = Number(r2);
+					if(r1 > r2){
+						alert("r1>r2");
 						temp = r2;
 						r2 = r1;
 						r1 = temp;	
+					} else {
+						alert("WTF");	
 					}
 					if(c1 > c2){
+						alert("c1>c2");
 						temp = c2;
 						c2 = c1;
 						c1 = temp;		
@@ -79,11 +86,52 @@ function applyTimeStatus(td){
 
 
 
+function applyTimeStatusDay(td){
+	var r2;
+	var c2;
+	var cell;
+	var temp;
+	var sId;
+
+	sId = (td.id).split("-");
+	//r2 = sId[0];
+	var r = Number(numOfRows);
+	var c = Number(sId[1]);
+	var t = Number(sId[2]);
+	for( var rIdx = 0; rIdx <= r; rIdx++){					
+		cell = document.getElementById(""+rIdx+"-"+c+"-"+t);								//need 'document.' becuse the getElementId need to know where to get the elemebyById from.
+		setTimeStatus(cell, t);
+	}
+}
+
+
+function setSelectionStatus(ssn, intVal){
+	if((r1 > -1) && (c1>-1)){
+		var cell =document.getElementById(""+r1+"-"+c1+"-"+t1);
+		cell.style.border = "solid 0px #000";
+		cell.style.fontWeight =  "normal";	
+		r1 = -1;
+		c1 = -1;
+		t1 = -1;
+	}
+	firstClick = true;
+	if(ssn==1){
+		selectionStatus1 = intVal;	
+		// alert("ssn1 = " + intVal);
+	}
+	else if(ssn==2){
+		selectionStatus2 = intVal;	
+		// alert("ssn2 = " + intVal);
+	}
+}
+
+
+
 function setTimeStatus(td, table){
 	if(table == 1){
 			//alert("setTimeStatus running: table = " + table);
 			if( timeStatus1 == 0){
-				setTimeStatusHorrible();	
+				setTimeStatusHorrible(td);	
 			}
 			else if(timeStatus1 == 1){
 				setTimeStatusBad(td);	
@@ -110,48 +158,6 @@ function setTimeStatus(td, table){
 				setTimeStatusAwesome(td);	
 			}
 	}		
-}
-
-
-
-function applyTimeStatusDay(td){
-	var r2;
-	var c2;
-	var cell;
-	var temp;
-	var sId;
-
-	sId = (td.id).split("-");
-	//r2 = sId[0];
-	var r = numOfRows;
-	var c = sId[1];
-	var t = sId[2];
-	for( var rIdx = 0; rIdx <= r; rIdx++){					
-		var str = ''+rIdx+'-'+c;
-		cell = document.getElementById(""+rIdx+"-"+c+"-"+t);								//need 'document.' becuse the getElementId need to know where to get the elemebyById from.
-		setTimeStatus(cell, t);
-	}
-}
-
-
-function setSelectionStatus(ssn, intVal){
-	if((r1 > -1) && (c1>-1)){
-		var cell =document.getElementById(""+r1+"-"+c1+"-"+t1);
-		cell.style.border = "solid 0px #000";
-		cell.style.fontWeight =  "normal";	
-		r1 = -1;
-		c1 = -1;
-		t1 = -1;
-	}
-	firstClick = true;
-	if(ssn==1){
-		selectionStatus1 = intVal;	
-		// alert("ssn1 = " + intVal);
-	}
-	else if(ssn==2){
-		selectionStatus2 = intVal;	
-		// alert("ssn2 = " + intVal);
-	}
 }
 
 
