@@ -52,15 +52,12 @@ function applyTimeStatus(td){
 					//r1 = Number(r1);
 					//r2 = Number(r2);
 					if(r1 > r2){
-						alert("r1>r2");
 						temp = r2;
 						r2 = r1;
 						r1 = temp;	
 					} else {
-						alert("WTF");	
 					}
 					if(c1 > c2){
-						alert("c1>c2");
 						temp = c2;
 						c2 = c1;
 						c1 = temp;		
