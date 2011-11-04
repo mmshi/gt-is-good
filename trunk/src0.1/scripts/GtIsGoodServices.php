@@ -6,20 +6,31 @@ include_once "Connection.php";
 /**
  * GTIGSchedule Services
  */
+function addSchedule($editStr,$alias,$userId){
+	$con = connectToDb();
+	if ($con) {
+		$sql = "INSERT INTO `gtisgood`.`schedule` ( `createrID`, `alias`) VALUES ('$userId', '$alias');";
+		$result = desql($sql);
+		$schId= mysql_insert_id($con);
+		createGrid(new GTIGGrid(-1,$id,$editStr), $schId, $userId);
+		breakCon($con);
+		if ($schId)
+			return new GTIGSchedule($schId, $creatorID, $alias);
+	}
+	return 0;
+}
+
 function createSchedule($sch) {
 	$con = connectToDb();
 	if ($con) {
-		$startDate = $sch->startDate;//->format('Y-m-d H:i:s');
-		$endDate = $sch->endDate;//->format('Y-m-d H:i:s');
 		$creatorID = $sch->getCreatorId();
 		$alias = $sch->alias;
-		$type = $sch->type;
-		$sql = "INSERT INTO `gtisgood`.`schedule` (`startDate`, `endDate`, `createrID`, `alias`, `periodType`) VALUES ('$startDate', '$endDate', '$creatorID', '$alias', '$type');";
+		$sql = "INSERT INTO `gtisgood`.`schedule` ( `createrID`, `alias`) VALUES ('$creatorID', '$alias');";
 		$result = desql($sql);
 		$id = mysql_insert_id($con);
 		breakCon($con);
 		if ($id)
-			return new GTIGSchedule($id, $creatorID, $startDate, $endDate, $alias, $type);
+			return new GTIGSchedule($id, $creatorID, $alias);
 	}
 	return 0;
 }
@@ -87,34 +98,39 @@ function getAllSchedulesByCreator($creatorId) {
 	return 0;
 }
 
+function getSchedulesByUserId($userId){
+	$con = connectToDb();
+	if ($con) {
+		$sql="SELECT `schedule`.`schID`, `schedule`.`alias`,`schedule`.`creatorID` FROM `gtisgood`.`schedule`,`gtisgood`.`linktable` WHERE `linktable`.`userID`=$userId;";
+		$result = mysql_query($sql);
+		$rowcount = mysql_numrows($result);
+		$i = 0;
+		$arr = array();
+		while($row = mysql_fetch_array($result))
+			$arr[] = parseScheduleRow($row);
+		breakCon($con);
+		return $arr;
+	}
+	return 0;
+
+}
+
 /*private*/ function  parseScheduleRow($row) {
 	$creatorId = $row["createrID"];
-	$startDate= $row["startDate"];
-	$endDate= $row["endDate"];
 	$id= $row["schID"];
-	$type= $row["periodType"];
 	$alias = $row["alias"];
-	return new GTIGSchedule($id, $creatorId, $startDate, $endDate, $alias, $type);
+	return new GTIGSchedule($id, $creatorId, $alias);
 }
 
 function updateSchedule($sch, $loggedInUserID) {
 	$con = connectToDb();
 	if ($con) {
 	$id=$sch->getId();
-/*$sql="SELECT `createrID` FROM `gtisgood`.`schedule` WHERE `creatorID`=$loggedInUserID AND `schID`=$id;"
-$result=mysql_query($sql);
-$rowcount=mysql_numrows($result);*/
-	$startDate= $sch->startDate;
-	$endDate= $sch->endDate;
-	$type= $sch->type;
 	$alias = $sch->alias;
-/*while($row = mysql_fetch_array($result)){
-$id=$row["schID"];*/
-	$sql="UPDATE `gtisgood`.`schedule` SET `startDate`='$startDate', `endDate`='$endDate',`alias`='$alias', `periodType`='$type' WHERE `schedule`.`schID`=$id AND `schedule`.`createrID`=$loggedInUserID ;";
+	$sql="UPDATE `gtisgood`.`schedule` SET `alias`='$alias' WHERE `schedule`.`schID`=$id AND `schedule`.`createrID`=$loggedInUserID ;";
 	$result=mysql_query($sql);
 	breakCon($con);
 	}
-/*}*/
 }
 
 
@@ -127,14 +143,14 @@ function createGrid($grid, $schId, $userId) {
 		$type = $grid->getScheduleType();
 		$data = $grid->data;
 		$comments = $grid->comments;
-		$sql = "INSERT INTO `gtisgood`.`grid` (`data`, `comments`) VALUES ('$data', '$comments');";
+		$sql = "INSERT INTO `gtisgood`.`grid` (`data`) VALUES ('$data');";
 		$result = desql($sql);
 		$id = mysql_insert_id($con);
 		if ($id) {
-			$sql = "INSERT INTO `gtisgood`.`linktable` (`schID`, `gridID`, `userID`, `type`) VALUES ('$schId', '$id', '$userId', '$type');";
+			$sql = "INSERT INTO `gtisgood`.`linktable` (`schID`, `gridID`, `userID`) VALUES ('$schId', '$id', '$userId');";
 			desql($sql);
 			breakCon($con);
-			return new GTIGGrid($id, $userId, $type, $data, $comments);
+			return new GTIGGrid($id, $userId, $data, $comments);
 		}
 		breakCon($con);
 	}
@@ -176,25 +192,43 @@ function getGridsBySchedule($schId) {
 /*private*/ function parseGridRow($row) {
 	$id= $row["gridID"];
 	$userId= $row["userID"];
-	$type= $row["type"];
 	$data= $row["data"];
-	$comments= $row["comments"];
-	return new GTIGGrid($id, $userId, $type, $data, $comments);
+	return new GTIGGrid($id, $userId, $data);
 }
 
 function updateGrid($grid, $loggedInUserID) {
 	$con = connectToDb();
 	if ($con) {
 	$id= $grid->getId();
-	$type= $grid->getScheduleType();
 	$data= $grid->data;
-	$comments= $grid->comments;
-	$sql="UPDATE `gtisgood`.`grid`, `gtisgood`.`linktable` SET `linktable`.`type`='$type',`grid`.`data`='$data',`grid`.`comments`='$comments' WHERE `grid`.`gridID`=$id AND `linktable`.`userID`=$loggedInUserID;";
+	$sql="UPDATE `gtisgood`.`grid`, `gtisgood`.`linktable` SET `grid`.`data`='$data' WHERE `grid`.`gridID`=$id AND `linktable`.`userID`=$loggedInUserID;";
 	$result=mysql_query($sql);	
 	breakCon($con);
 	}
 }
 
+function getEditString($id){
+	$con = connectToDb();
+	if ($con) {
+		$sql="SELECT `data` FROM `gtisgood`.`grid` WHERE `gridID`=$id;";
+		$result = mysql_query($sql);
+		$rowcount = mysql_numrows($result);
+		if($rowcount<1)return 0;
+		$rtn = mysql_fetch_array($result)["data"];
+		breakCon($con);
+		return $rtn;
+	}
+	return 0;
+}
+
+function addEditString($editStr,$id){
+	$con = connectToDb();
+	if ($con) {
+		$sql="UPDATE `gtisgood`.`grid` SET `data`='$editStr' WHERE `id`=$id;";
+		$result = mysql_query($sql);
+		breakCon($con);
+	}
+}
 
 /**
  * GTIGUser Services
@@ -205,13 +239,12 @@ function createUser($user) {
 		$name = $user->name;
 		$email = $user->email;
 		$password = $user->password;
-		$pullFromTSquare = $user->pullFromTSquare;
-		$sql = "INSERT INTO `gtisgood`.`user` (`name`, `email`, `password`, `fromTSquare`) VALUES ('$name', '$email', '$password', $pullFromTSquare);";
+		$sql = "INSERT INTO `gtisgood`.`user` (`name`, `email`) VALUES ('$name', '$email');";
 		$result = desql($sql);
 		$id = mysql_insert_id($con);
 		breakCon($con);
 		if ($id)
-			return new GTIGUser($id, $name, $email, $password, $pullFromTSquare);
+			return new GTIGUser($id, $name, $email);
 	}
 	return 0;
 }
@@ -267,9 +300,7 @@ function getAllUsers() {
 	$id = $row["userID"];
 	$name = $row["name"];
 	$email = $row["email"];
-	$password = $row["password"];
-	$fromTsquare = $row["fromTSquare"];
-	return new GTIGUser($id, $name,$email,$password,$fromTsquare);
+	return new GTIGUser($id, $name,$email);
 }
 
 function updateUser($user, $loggedInUserID) {
@@ -277,9 +308,7 @@ function updateUser($user, $loggedInUserID) {
 	if ($con) {
 	$name=$user->name;
 	$email=$user->email;
-	$password=$user->password;
-	$fromTsquare = $user->fromTsquare;
-	$sql="UPDATE `gtisgood`.`user` SET `name`='$name', `email`='$email', `password`='$password', `fromTSquare`='$fromTsquare' WHERE `user`.`userID`=$loggedInUserID;";
+	$sql="UPDATE `gtisgood`.`user` SET `name`='$name', `email`='$email' WHERE `user`.`userID`=$loggedInUserID;";
 	$result=mysql_query($sql);
 	breakCon($con);
 	}
