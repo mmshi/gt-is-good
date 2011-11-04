@@ -38,40 +38,57 @@
 	<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="a">
 	  	<h3>View Current</h3>
   		<p>here you will view the calendar</p>
-        
+
+            <div>
+            	<label for="slider">Results/Edit :</label>
+                <!--
+				<select name ="slider" id="resultsEditSlider" data-role="slider">
+                	<option value="on">on</option>
+                    <option value="off">off</option>
+                </select>
+                -->
+            	<select name="slider" id="resultsEditSlider1" data-role="slider" data-theme="a">	<!-- WTF---- CAN NOT USE:  id="resultsEditSlider" -->
+                   	<option value="edit">edit</option>
+	                <option value="results">Results</option>
+           		</select> 
+                
+                
+            </div>
+
+        	<div name = "view result" id = "resultTable" class = "">
                                 <table>
                                 <tr>
-                                <td id = "d-0" class = "dateHeader weekendColor" onclick = "applyTimeStatusDay(this);">
+                                <td id = "d-0" class = "dateHeader weekendColor"   >
                                     <div class = "dayText">Sun</div>
                                     <div class = "dateText">16</div>
                                     <div class = "dayText">OCT</div>
                                 </td>
-                                <td id = "d-1" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
+                                <td id = "d-1" class = "dateHeader weekdayColor"   >
                                     <div class = "dayText">Mon</div>
                                     <div class = "dateText">17</div>
                                     <div class = "dayText">OCT</div>
                                 </td>
-                                <td id = "d-2" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
+                                <td id = "d-2" class = "dateHeader weekdayColor"   >
                                     <div class = "dayText">Tue</div>
                                     <div class = "dateText">18</div>
                                     <div class = "dayText">OCT</div>
                                 </td>
-                                <td id = "d-3" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
+                                <td id = "d-3" class = "dateHeader weekdayColor"   >
                                     <div class = "dayText">Wed</div>
                                     <div class = "dateText">19</div>
                                     <div class = "dayText">OCT</div>
                                 </td>
-                                <td id = "d-4" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
+                                <td id = "d-4" class = "dateHeader weekdayColor"   >
                                     <div class = "dayText">Thu</div>
                                     <div class = "dateText">20</div>
                                     <div class = "dayText">OCT</div>
                                 </td>
-                                <td id = "d-5" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
+                                <td id = "d-5" class = "dateHeader weekdayColor"   >
                                     <div class = "dayText">Fri</div>
                                     <div class = "dateText">21</div>
                                     <div class = "dayText">OCT</div>
                                 </td>
-                                <td id = "d-6" class = "dateHeader weekendColor" onclick = "applyTimeStatusDay(this);">
+                                <td id = "d-6" class = "dateHeader weekendColor"   >
                                     <div class = "dayText">Sat</div>
                                     <div class = "dateText">22</div>
                                     <div class = "dayText">OCT</div>
@@ -79,160 +96,390 @@
                                 </tr>
                             
                                 <tr>
-                                <td id = "0-0" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "0-0" class = "t"    >
                                     <div>12:00</div>
                                 </td>
-                                <td id = "0-1" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "0-1" class = "t"    >
                                     <div>12:00</div>
                                 </td>
-                                <td id = "0-2" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "0-2" class = "t"    >
                                     <div>12:00</div>
                                 </td>
-                                <td id = "0-3" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "0-3" class = "t"    >
                                     <div>12:00</div>
                                 </td>
-                                <td id = "0-4" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "0-4" class = "t"    >
                                     <div>12:00</div>
                                 </td>
-                                <td id = "0-5" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "0-5" class = "t"    >
                                     <div>12:00</div>
                                 </td>
-                                <td id = "0-6" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "0-6" class = "t"    >
                                     <div>12:00</div>
                                 </td>
                                 </tr>
                                 <tr>
-                                <td id = "1-0" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "1-0" class = "t"    >
                                     <div>12:30</div>
                                 </td>
-                                <td id = "1-1" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "1-1" class = "t"    >
                                     <div>12:30</div>
                                 </td>
-                                <td id = "1-2" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "1-2" class = "t"    >
                                     <div>12:30</div>
                                 </td>
-                                <td id = "1-3" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "1-3" class = "t"    >
                                     <div>12:30</div>
                                 </td>
-                                <td id = "1-4" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "1-4" class = "t"    >
                                     <div>12:30</div>
                                 </td>
-                                <td id = "1-5" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "1-5" class = "t"    >
                                     <div>12:30</div>
                                 </td>
-                                <td id = "1-6" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "1-6" class = "t"    >
                                     <div>12:30</div>
                                 </td>
                                 </tr>    
                                 <tr>
-                                <td id = "2-0" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "2-0" class = "t"    >
                                     <div>1:00</div>
                                 </td>
-                                <td id = "2-1" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "2-1" class = "t"    >
                                     <div>1:00</div>
                                 </td>
-                                <td id = "2-2" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "2-2" class = "t"    >
                                     <div>1:00</div>
                                 </td>
-                                <td id = "2-3" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "2-3" class = "t"    >
                                     <div>1:00</div>
                                 </td>
-                                <td id = "2-4" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "2-4" class = "t"    >
                                     <div>1:00</div>
                                 </td>
-                                <td id = "2-5" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "2-5" class = "t"    >
                                     <div>1:00</div>
                                 </td>
-                                <td id = "2-6" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "2-6" class = "t"    >
                                     <div>1:00</div>
                                 </td>
                                 </tr>
                                 <tr>
-                                <td id = "3-0" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "3-0" class = "t"    >
                                     <div>1:30</div>
                                 </td>
-                                <td id = "3-1" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "3-1" class = "t"    >
                                     <div>1:30</div>
                                 </td>
-                                <td id = "3-2" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "3-2" class = "t"    >
                                     <div>1:30</div>
                                 </td>
-                                <td id = "3-3" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "3-3" class = "t"    >
                                     <div>1:30</div>
                                 </td>
-                                <td id = "3-4" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "3-4" class = "t"    >
                                     <div>1:30</div>
                                 </td>
-                                <td id = "3-5" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "3-5" class = "t"    >
                                     <div>1:30</div>
                                 </td>
-                                <td id = "3-6" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "3-6" class = "t"    >
                                     <div>1:30</div>
                                 </td>
                                 </tr> 
                                  <tr>
-                                <td id = "4-0" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "4-0" class = "t"    >
                 
                                     <div>2:00</div>
                                 </td>
-                                <td id = "4-1" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "4-1" class = "t"    >
                                     <div>2:00</div>
                                 </td>
-                                <td id = "4-2" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "4-2" class = "t"    >
                                     <div>2:00</div>
                                 </td>
-                                <td id = "4-3" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "4-3" class = "t"    >
                                     <div>2:00</div>
                                 </td>
-                                <td id = "4-4" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "4-4" class = "t"    >
                                     <div>2:00</div>
                                 </td>
-                                <td id = "4-5" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "4-5" class = "t"    >
                                     <div>2:00</div>
                                 </td>
-                                <td id = "4-6" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "4-6" class = "t"    >
                                     <div>2:00</div>
                                 </td>
                                 </tr>
                                 <tr>
-                                <td id = "5-0" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "5-0" class = "t"    >
                                     <div>2:30</div>
                                 </td>
-                                <td id = "5-1" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "5-1" class = "t"    >
                                     <div>2:30</div>
                                 </td>
-                                <td id = "5-2" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "5-2" class = "t"    >
                                     <div>2:30</div>
                                 </td>
-                                <td id = "5-3" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "5-3" class = "t"    >
                                     <div>2:30</div>
                                 </td>
-                                <td id = "5-4" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "5-4" class = "t"    >
                                     <div>2:30</div>
                                 </td>
-                                <td id = "5-5" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "5-5" class = "t"    >
                                     <div>2:30</div>
                                 </td>
-                                <td id = "5-6" class = "t" onclick = "applyTimeStatus(this);" >
+                                <td id = "5-6" class = "t"    >
                                     <div>2:30</div>
                                 </td>
                                 </tr>  
                               </tr>
                             </table>
-        
-         <div data-role="collapsible" data-collapsed="true" data-theme="e" data-content-theme="a">
-                                <h3>View Users</h3>
-                                <p>here you will view the calendar</p>
-                                <div data-role="fieldcontain">
-                                        <fieldset data-role="controlgroup">
-                                                <legend>Agree to the terms:</legend>
-                                                <input type="checkbox" name="checkbox-1" id="checkbox-1" class="custom" />
-                                                <label for="checkbox-1">example user 1</label>
-                                                <input type="checkbox" name="checkbox-2" id="checkbox-2" class="custom" />
-                                                <label for="checkbox-2">example user 2</label>
-                                        </fieldset>
+             </div>
+                      
+                      
+             <div name = "edit Result Table" id = "editResultTable" class = "hidden">
+                               <!-----------------START CALENDAR CODE-------------------------------->
+                                <!--<div id="bounds">	-->
+                                <!--
+                                    <label onclick = "setSelectionStatus(2);">Sticky</label>
+                                    -->
+                                    <div data-role="fieldcontain">
+                                            <label for="onclick"></label>
+                                            <select name="slider" id="selectionStatusFlip" data-role="slider" data-theme="a">
+                                                <option value="sticky">Sticky</option>
+                                                <option value="single">Single</option>
+                                            </select> 
+                                    </div>
+                        
+                                
+                                
+                        
+                                <br/>
+                                <div id = 'timeStatusButtons'>
+                                        <fieldset data-role="controlgroup" data-type="horizontal">
+                                            <legend></legend>
+                                                <input type="radio" name="radio-group-1" id="radio-choice-1" value="choice-0" checked="checked" />
+                                                <label for="radio-choice-1">
+                                                <img src="images/Horrible_S.jpg" width=15px height=15px /></label>
+                            
+                                                <input type="radio" name="radio-group-1" id="radio-choice-2" value="choice-1"  />
+                                                <label for="radio-choice-2">
+                                                <img src="images/Bad_S-2.jpg" width=15px height=15px /></label>
+                            
+                                                <input type="radio" name="radio-group-1" id="radio-choice-3" value="choice-2"  />
+                                                <label for="radio-choice-3">
+                                                <img src="images/Good_S-2.jpg" width=15px height=15px /></label>
+                            
+                                                <input type="radio" name="radio-group-1" id="radio-choice-4" value="choice-3"  />
+                                                <label for="radio-choice-4">
+                                                <img src="images/Awesome_S-2.jpg" width=15px height=15px /></label>
+                                        </fieldset>    
                                 </div>
-                        </div>
+                                <br/>
+                        
+                                <table>
+                                        <tr>
+                                        <td id = "d-0" class = "dateHeader weekendColor" onclick = "applyTimeStatusDay(this);">
+                                            <div class = "dayText">Sun</div>
+                                            <div class = "dateText">16</div>
+                                            <div class = "dayText">OCT</div>
+                                        </td>
+                                        <td id = "d-1" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
+                                            <div class = "dayText">Mon</div>
+                                            <div class = "dateText">17</div>
+                                            <div class = "dayText">OCT</div>
+                                        </td>
+                                        <td id = "d-2" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
+                                            <div class = "dayText">Tue</div>
+                                            <div class = "dateText">18</div>
+                                            <div class = "dayText">OCT</div>
+                                        </td>
+                                        <td id = "d-3" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
+                                            <div class = "dayText">Wed</div>
+                                            <div class = "dateText">19</div>
+                                            <div class = "dayText">OCT</div>
+                                        </td>
+                                        <td id = "d-4" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
+                                            <div class = "dayText">Thu</div>
+                                            <div class = "dateText">20</div>
+                                            <div class = "dayText">OCT</div>
+                                        </td>
+                                        <td id = "d-5" class = "dateHeader weekdayColor" onclick = "applyTimeStatusDay(this);">
+                                            <div class = "dayText">Fri</div>
+                                            <div class = "dateText">21</div>
+                                            <div class = "dayText">OCT</div>
+                                        </td>
+                                        <td id = "d-6" class = "dateHeader weekendColor" onclick = "applyTimeStatusDay(this);">
+                                            <div class = "dayText">Sat</div>
+                                            <div class = "dateText">22</div>
+                                            <div class = "dayText">OCT</div>
+                                        </td>
+                                        </tr>
+                                    
+                                        <tr>
+                                        <td id = "0-0" class = "t"    >
+                                            <div>12:00</div>
+                                        </td>
+                                        <td id = "0-1" class = "t"    >
+                                            <div>12:00</div>
+                                        </td>
+                                        <td id = "0-2" class = "t"    >
+                                            <div>12:00</div>
+                                        </td>
+                                        <td id = "0-3" class = "t"    >
+                                            <div>12:00</div>
+                                        </td>
+                                        <td id = "0-4" class = "t"    >
+                                            <div>12:00</div>
+                                        </td>
+                                        <td id = "0-5" class = "t"    >
+                                            <div>12:00</div>
+                                        </td>
+                                        <td id = "0-6" class = "t"    >
+                                            <div>12:00</div>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td id = "1-0" class = "t"    >
+                                            <div>12:30</div>
+                                        </td>
+                                        <td id = "1-1" class = "t"    >
+                                            <div>12:30</div>
+                                        </td>
+                                        <td id = "1-2" class = "t"    >
+                                            <div>12:30</div>
+                                        </td>
+                                        <td id = "1-3" class = "t"    >
+                                            <div>12:30</div>
+                                        </td>
+                                        <td id = "1-4" class = "t"    >
+                                            <div>12:30</div>
+                                        </td>
+                                        <td id = "1-5" class = "t"    >
+                                            <div>12:30</div>
+                                        </td>
+                                        <td id = "1-6" class = "t"    >
+                                            <div>12:30</div>
+                                        </td>
+                                        </tr>    
+                                        <tr>
+                                        <td id = "2-0" class = "t"    >
+                                            <div>1:00</div>
+                                        </td>
+                                        <td id = "2-1" class = "t"    >
+                                            <div>1:00</div>
+                                        </td>
+                                        <td id = "2-2" class = "t"    >
+                                            <div>1:00</div>
+                                        </td>
+                                        <td id = "2-3" class = "t"    >
+                                            <div>1:00</div>
+                                        </td>
+                                        <td id = "2-4" class = "t"    >
+                                            <div>1:00</div>
+                                        </td>
+                                        <td id = "2-5" class = "t"    >
+                                            <div>1:00</div>
+                                        </td>
+                                        <td id = "2-6" class = "t"    >
+                                            <div>1:00</div>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td id = "3-0" class = "t"    >
+                                            <div>1:30</div>
+                                        </td>
+                                        <td id = "3-1" class = "t"    >
+                                            <div>1:30</div>
+                                        </td>
+                                        <td id = "3-2" class = "t"    >
+                                            <div>1:30</div>
+                                        </td>
+                                        <td id = "3-3" class = "t"    >
+                                            <div>1:30</div>
+                                        </td>
+                                        <td id = "3-4" class = "t"    >
+                                            <div>1:30</div>
+                                        </td>
+                                        <td id = "3-5" class = "t"    >
+                                            <div>1:30</div>
+                                        </td>
+                                        <td id = "3-6" class = "t"    >
+                                            <div>1:30</div>
+                                        </td>
+                                        </tr> 
+                                         <tr>
+                                        <td id = "4-0" class = "t"    >
+                        
+                                            <div>2:00</div>
+                                        </td>
+                                        <td id = "4-1" class = "t"    >
+                                            <div>2:00</div>
+                                        </td>
+                                        <td id = "4-2" class = "t"    >
+                                            <div>2:00</div>
+                                        </td>
+                                        <td id = "4-3" class = "t"    >
+                                            <div>2:00</div>
+                                        </td>
+                                        <td id = "4-4" class = "t"    >
+                                            <div>2:00</div>
+                                        </td>
+                                        <td id = "4-5" class = "t"    >
+                                            <div>2:00</div>
+                                        </td>
+                                        <td id = "4-6" class = "t"    >
+                                            <div>2:00</div>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                        <td id = "5-0" class = "t"    >
+                                            <div>2:30</div>
+                                        </td>
+                                        <td id = "5-1" class = "t"    >
+                                            <div>2:30</div>
+                                        </td>
+                                        <td id = "5-2" class = "t"    >
+                                            <div>2:30</div>
+                                        </td>
+                                        <td id = "5-3" class = "t"    >
+                                            <div>2:30</div>
+                                        </td>
+                                        <td id = "5-4" class = "t"    >
+                                            <div>2:30</div>
+                                        </td>
+                                        <td id = "5-5" class = "t"    >
+                                            <div>2:30</div>
+                                        </td>
+                                        <td id = "5-6" class = "t"    >
+                                            <div>2:30</div>
+                                        </td>
+                                        </tr>  
+                                      </tr>
+                                    </table>
+                        
+                                <p>Name: <input type="text" id="nameBox"></p>
+                                <p>Comments: <input type="text" id="commentBox"></p>
+                                    <div><button type="submit" data-theme="c">Submit</button></div>
+                        <div><button type="submit" data-theme="c">Cancel</button></div>
+                                
+                        <!-----------------END CALENDAR CODE-------------------------------->
+	         </div>         
+             <div data-role="collapsible" data-collapsed="true" data-theme="e" data-content-theme="a">
+                                    <h3>View Users</h3>
+                                    <p>here you will view the calendar</p>
+                                    <div data-role="fieldcontain">
+                                            <fieldset data-role="controlgroup">
+                                                    <legend>Agree to the terms:</legend>
+                                                    <input type="checkbox" name="checkbox-1" id="checkbox-1" class="custom" />
+                                                    <label for="checkbox-1">example user 1</label>
+                                                    <input type="checkbox" name="checkbox-2" id="checkbox-2" class="custom" />
+                                                    <label for="checkbox-2">example user 2</label>
+                                            </fieldset>
+                                    </div>
+               </div>
 
 	</div>
 	<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="a">

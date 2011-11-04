@@ -186,3 +186,22 @@ $(document).ready(function(){
 		
 	});
 });
+
+$('#resultsEditSlider1').change(function(){
+	var thisSwitch = $(this);
+	var show = thisSwitch[0].selectedIndex == 1? true:false;
+	$('#resultTable').toggle(show)
+	/*
+	if(show){
+		//set resutls to show and hide edit schedule
+		$('#resultTable').toggle(show);
+	}
+
+	else{
+		//set hide to show and results edit schedule
+		$('#editResultTable').thoggle(show);
+	}
+	*/
+	
+	
+});
