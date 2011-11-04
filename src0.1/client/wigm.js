@@ -197,6 +197,37 @@ function setTimeStatusHorrible(td){
 	td.className = "H";
 }
 
+
+
+function toggleTSB(tsbTD){
+	var sId;
+	var id;
+	var tsb;
+	var cell;
+	
+	sId = (tsbTD.id).split("-");
+	id = Number(sId[0]);
+	tsb = sId[1];
+
+	for(var i = 0; i<4; i++){
+			cell = document.getElementById(""+i+"-"+tsb);								//----clear any border around a seclected  time status....is wastefull, but after 15 hours...IDC
+			cell.style.border = "solid 0px #000";
+	}
+	tsbTD.style.border = "solid 2px #000";
+	if( tsb == 'tsbe'){							// for edit
+		timeStatus1 = id;
+	}
+	else if (tsb == 'tsbc'){					//for create
+		timeStatus2 = id;
+	}
+	else if (tsb == 'tsbj'){					//for join
+		timeStatus3 = id;
+	}
+}
+
+
+
+
 function generateString(tableNo) {
 	var toRet = "";
 	var td;
