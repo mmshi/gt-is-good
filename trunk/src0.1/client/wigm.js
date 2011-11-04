@@ -30,12 +30,14 @@ function applyTimeStatus(td){
 		if(!firstClick){
 			var r2;
 			var c2;
+			var t;
 			var cell;
 			var temp;
 			
 			sId = (td.id).split("-");
 			r2 = sId[0];
 			c2 = sId[1];
+			t = sId[2];
 			
 			cell = document.getElementById(""+r1+"-"+c1);
 			cell.style.border = "solid 0px #000";
@@ -57,7 +59,7 @@ function applyTimeStatus(td){
 				for( var c = c1; c <= c2; c++){
 					var str = ''+r+'-'+c;
 					//cell = getElementById(''+r+'-'+c);	
-					cell = document.getElementById(""+r+"-"+c);								//need 'document.' becuse the getElementId need to know where to get the elemebyById from.
+					cell = document.getElementById(""+r+"-"+c+"-"+t);								//need 'document.' becuse the getElementId need to know where to get the elemebyById from.
 					if( timeStatus == 0){
 						setTimeStatusHorrible(cell);	
 					}
@@ -102,11 +104,12 @@ function applyTimeStatusDay(td){
 
 	sId = (td.id).split("-");
 	//r2 = sId[0];
-	r = numOfRows;
-	c = sId[1];
+	var r = numOfRows;
+	var c = sId[1];
+	var t = sId[2];
 	for( var rIdx = 0; rIdx <= r; rIdx++){					
 		var str = ''+rIdx+'-'+c;
-		cell = document.getElementById(""+rIdx+"-"+c);								//need 'document.' becuse the getElementId need to know where to get the elemebyById from.
+		cell = document.getElementById(""+rIdx+"-"+c+"-"+t);								//need 'document.' becuse the getElementId need to know where to get the elemebyById from.
 		if( timeStatus == 0){
 			setTimeStatusHorrible(cell);	
 		}
@@ -189,19 +192,23 @@ $(document).ready(function(){
 
 $('#resultsEditSlider1').change(function(){
 	var thisSwitch = $(this);
-	var show = thisSwitch[0].selectedIndex == 1? true:false;
-	$('#resultTable').toggle(show)
+	var show1 = thisSwitch[0].selectedIndex == 1? true:false;
+	var show2 = thisSwitch[0].selectedIndex == 1? false:true;
+	$('#resultTable').toggle(show1);
+	$('#editResultTable').toggle(show2);
+	
 	/*
-	if(show){
+	if(show == true){
 		//set resutls to show and hide edit schedule
 		$('#resultTable').toggle(show);
 	}
-
 	else{
 		//set hide to show and results edit schedule
-		$('#editResultTable').thoggle(show);
+		$('#editResultTable').toggle(show);
 	}
 	*/
+
 	
 	
 });
+
