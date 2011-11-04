@@ -1,27 +1,16 @@
 <?php
 
-class GTIGScheduleTypes {
-  const DAY 	= '1day';
-  const HOUR 	= '1hour';
-  const HALFHOUR = '30min';
-}
 
 class GTIGSchedule {
 
   private $id;
   private $creatorId;
-  public $startDate;
-  public $endDate;
-  public $alias;
-  public $type;		// GTIGScheduleTypes
+  public $alias;	// GTIGScheduleTypes
 
-  function __construct($id, $creatorId, $startDate, $endDate, $alias='NULL', $type=GTIGScheduleTypes::HALFHOUR){
+  function __construct($id, $creatorId, $alias='NULL'){
     $this->id = $id;
     $this->creatorId = $creatorId;
-    $this->startDate = $startDate;
-    $this->endDate = $endDate;
     $this->alias = $alias;
-    $this->type = $type;
   }
 
   function getId() {
@@ -49,25 +38,17 @@ class GTIGSchedule {
   }
 }
 
-abstract class GTIGGridTypes {
-  const CONSTRAINT = 'constraint';
-  const SCHEDULE   = 'userSchedule';
-}
 
 class GTIGGrid {
 
   private $id;
   private $userId;
-  private $type; 	// GTIGGridTypes
   public $data;
-  public $comments;
 
-  function __construct($id, $userId, $type, $data, $comments) {
+  function __construct($id, $userId, $data) {
     $this->id = $id;
     $this->userId = $userId;
-    $this->type = $type;
     $this->data = $data;
-    $this->comments = $comments;
   }
 
   function getId() {
@@ -82,10 +63,6 @@ class GTIGGrid {
     // TODO
   }
 
-  function getScheduleType() {
-    return $this->type;
-  }
-
   function saveToDb() {
     // TODO
   }
@@ -96,15 +73,11 @@ class GTIGUser {
   private $id;
   public $name;
   public $email;
-  public $password;
-  public $pullFromTSquare;
 
-  function __construct($id, $name, $email, $password, $pullFromTSquare) {
+  function __construct($id, $name, $email) {
     $this->id = $id;
     $this->name = $name;
     $this->email = $email;
-    $this->password = $password;
-    $this->pullFromTSquare = $pullFromTSquare;
   }
 
   function getId() {
