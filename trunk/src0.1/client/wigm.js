@@ -271,3 +271,37 @@ $('#resultsEditSlider1').change(function(){
 	
 });
 
+function generateString(tableNo) {
+	var toRet = "";
+	var td;
+	
+	for (var i=0; i<7; i++) {
+		for(var j=0; j<24; j++) {
+			td = document.getElementById("" + j + "-" + i + "-" + tableNo);
+			toRet += td.className;
+		}
+	}
+	
+	alert(toRet);
+	return toRet;
+}
+
+function applyString(str, tableNo) {
+	var day=0;
+	var hour=0;
+	var td;
+	
+	for(var i=0; i<str.length; i++) {
+		td = document.getElementById("" + hour + "-" + day + "-" + tableNo);
+		if (td) {
+			td.className = str.charAt(i);
+			hour++;
+			if (hour>23) {
+				hour=0;
+				day++;
+			}
+		} else {
+			return;
+		}
+	}
+}
