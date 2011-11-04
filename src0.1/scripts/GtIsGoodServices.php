@@ -9,11 +9,11 @@ include_once "Connection.php";
 function addSchedule($editStr,$alias,$userId){
 	$con = connectToDb();
 	if ($con) {
-		$sql = "INSERT INTO `gtisgood`.`schedule` ( `createrID`, `alias`) VALUES ('$userId', '$alias');";
+		$sql = "INSERT INTO `gtisgood`.`schedule` ( `creatorID`, `alias`) VALUES ('$userId', '$alias');";
 		$result = desql($sql);
 		$schId= mysql_insert_id($con);
-		createGrid(new GTIGGrid(-1,$id,$editStr), $schId, $userId);
 		breakCon($con);
+		createGrid(new GTIGGrid(-1,$id,$editStr), $schId, $userId);
 		if ($schId)
 			return new GTIGSchedule($schId, $creatorID, $alias);
 	}
@@ -25,7 +25,7 @@ function createSchedule($sch) {
 	if ($con) {
 		$creatorID = $sch->getCreatorId();
 		$alias = $sch->alias;
-		$sql = "INSERT INTO `gtisgood`.`schedule` ( `createrID`, `alias`) VALUES ('$creatorID', '$alias');";
+		$sql = "INSERT INTO `gtisgood`.`schedule` ( `creatorID`, `alias`) VALUES ('$creatorID', '$alias');";
 		$result = desql($sql);
 		$id = mysql_insert_id($con);
 		breakCon($con);
@@ -127,7 +127,7 @@ function updateSchedule($sch, $loggedInUserID) {
 	if ($con) {
 	$id=$sch->getId();
 	$alias = $sch->alias;
-	$sql="UPDATE `gtisgood`.`schedule` SET `alias`='$alias' WHERE `schedule`.`schID`=$id AND `schedule`.`createrID`=$loggedInUserID ;";
+	$sql="UPDATE `gtisgood`.`schedule` SET `alias`='$alias' WHERE `schedule`.`schID`=$id AND `schedule`.`creatorID`=$loggedInUserID ;";
 	$result=mysql_query($sql);
 	breakCon($con);
 	}
@@ -140,9 +140,7 @@ function updateSchedule($sch, $loggedInUserID) {
 function createGrid($grid, $schId, $userId) {
 	$con = connectToDb();
 	if ($con) {
-		$type = $grid->getScheduleType();
 		$data = $grid->data;
-		$comments = $grid->comments;
 		$sql = "INSERT INTO `gtisgood`.`grid` (`data`) VALUES ('$data');";
 		$result = desql($sql);
 		$id = mysql_insert_id($con);
@@ -150,7 +148,7 @@ function createGrid($grid, $schId, $userId) {
 			$sql = "INSERT INTO `gtisgood`.`linktable` (`schID`, `gridID`, `userID`) VALUES ('$schId', '$id', '$userId');";
 			desql($sql);
 			breakCon($con);
-			return new GTIGGrid($id, $userId, $data, $comments);
+			return new GTIGGrid($id, $userId, $data);
 		}
 		breakCon($con);
 	}
@@ -214,7 +212,8 @@ function getEditString($id){
 		$result = mysql_query($sql);
 		$rowcount = mysql_numrows($result);
 		if($rowcount<1)return 0;
-		$rtn = mysql_fetch_array($result)["data"];
+		$rtn = mysql_fetch_array($result);
+		$rtn=$rtn["data"];
 		breakCon($con);
 		return $rtn;
 	}
