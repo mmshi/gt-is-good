@@ -9,7 +9,7 @@ include_once "Connection.php";
 function addSchedule($editStr,$alias,$userId){
 	$con = connectToDb();
 	if ($con) {
-		$sql = "INSERT INTO `gtisgood`.`schedule` ( `creatorID`, `alias`) VALUES ('$userId', '$alias');";
+		$sql = "INSERT INTO `CONTRIB_droptables`.`schedule` ( `creatorID`, `alias`) VALUES ('$userId', '$alias');";
 		$result = desql($sql);
 		$schId= mysql_insert_id($con);
 		breakCon($con);
@@ -25,7 +25,7 @@ function createSchedule($sch) {
 	if ($con) {
 		$creatorID = $sch->getCreatorId();
 		$alias = $sch->alias;
-		$sql = "INSERT INTO `gtisgood`.`schedule` ( `creatorID`, `alias`) VALUES ('$creatorID', '$alias');";
+		$sql = "INSERT INTO `CONTRIB_droptables`.`schedule` ( `creatorID`, `alias`) VALUES ('$creatorID', '$alias');";
 		$result = desql($sql);
 		$id = mysql_insert_id($con);
 		breakCon($con);
@@ -39,7 +39,7 @@ function getScheduleById($id) {
 	// TODO
 	$con = connectToDb();
 	if ($con) {
-		$sql="SELECT * FROM `gtisgood`.`schedule` WHERE `schID`=$id";
+		$sql="SELECT * FROM `CONTRIB_droptables`.`schedule` WHERE `schID`=$id";
 		$result = mysql_query($sql);
 		$rowcount = mysql_numrows($result);
 		if($rowcount<1)return 0;
@@ -54,7 +54,7 @@ function getScheduleByAlias($alias) {
 	// TODO
 	$con = connectToDb();
 	if ($con) {
-		$sql="SELECT * FROM `gtisgood`.`schedule` WHERE `alias`='$alias';";
+		$sql="SELECT * FROM `CONTRIB_droptables`.`schedule` WHERE `alias`='$alias';";
 		$result = mysql_query($sql);
 		$rowcount = mysql_numrows($result);
 		if($rowcount<1)return 0;
@@ -69,7 +69,7 @@ function getAllSchedules() {
 	// TODO
 	$con = connectToDb();
 	if ($con) {    
-		$sql="SELECT * FROM `gtisgood`.`schedule`;";
+		$sql="SELECT * FROM `CONTRIB_droptables`.`schedule`;";
 		$result = mysql_query($sql);
 		$rowcount = mysql_numrows($result);
 		$i=0;
@@ -85,7 +85,7 @@ function getAllSchedules() {
 function getAllSchedulesByCreator($creatorId) {
 	$con = connectToDb();
 	if ($con) {
-		$sql="SELECT * FROM `gtisgood`.`schedule` WHERE `creatorID`=$creatorId;";
+		$sql="SELECT * FROM `CONTRIB_droptables`.`schedule` WHERE `creatorID`=$creatorId;";
 		$result = mysql_query($sql);
 		$rowcount = mysql_numrows($result);
 		$i = 0;
@@ -101,7 +101,7 @@ function getAllSchedulesByCreator($creatorId) {
 function getSchedulesByUserId($userId){
 	$con = connectToDb();
 	if ($con) {
-		$sql="SELECT `schedule`.`schID`, `schedule`.`alias`,`schedule`.`creatorID` FROM `gtisgood`.`schedule`,`gtisgood`.`linktable` WHERE `linktable`.`userID`=$userId;";
+		$sql="SELECT `schedule`.`schID`, `schedule`.`alias`,`schedule`.`creatorID` FROM `CONTRIB_droptables`.`schedule`,`CONTRIB_droptables`.`linktable` WHERE `linktable`.`userID`=$userId;";
 		$result = mysql_query($sql);
 		$rowcount = mysql_numrows($result);
 		$i = 0;
@@ -127,7 +127,7 @@ function updateSchedule($sch, $loggedInUserID) {
 	if ($con) {
 	$id=$sch->getId();
 	$alias = $sch->alias;
-	$sql="UPDATE `gtisgood`.`schedule` SET `alias`='$alias' WHERE `schedule`.`schID`=$id AND `schedule`.`creatorID`=$loggedInUserID ;";
+	$sql="UPDATE `CONTRIB_droptables`.`schedule` SET `alias`='$alias' WHERE `schedule`.`schID`=$id AND `schedule`.`creatorID`=$loggedInUserID ;";
 	$result=mysql_query($sql);
 	breakCon($con);
 	}
@@ -141,11 +141,11 @@ function createGrid($grid, $schId, $userId) {
 	$con = connectToDb();
 	if ($con) {
 		$data = $grid->data;
-		$sql = "INSERT INTO `gtisgood`.`grid` (`data`) VALUES ('$data');";
+		$sql = "INSERT INTO `CONTRIB_droptables`.`grid` (`data`) VALUES ('$data');";
 		$result = desql($sql);
 		$id = mysql_insert_id($con);
 		if ($id) {
-			$sql = "INSERT INTO `gtisgood`.`linktable` (`schID`, `gridID`, `userID`) VALUES ('$schId', '$id', '$userId');";
+			$sql = "INSERT INTO `CONTRIB_droptables`.`linktable` (`schID`, `gridID`, `userID`) VALUES ('$schId', '$id', '$userId');";
 			desql($sql);
 			breakCon($con);
 			return new GTIGGrid($id, $userId, $data);
@@ -159,7 +159,7 @@ function getGridById($gid, $sid) {
 	// TODO
 	$con = connectToDb();
 	if ($con) {
-		$sql="SELECT * FROM `gtisgood`.`grid`, `gtisgood`.`linktable` WHERE `grid`.`gridID`=$gid AND `linktable`.`gridID`=$gid AND `linktable`.`schID`=$sid;";
+		$sql="SELECT * FROM `CONTRIB_droptables`.`grid`, `CONTRIB_droptables`.`linktable` WHERE `grid`.`gridID`=$gid AND `linktable`.`gridID`=$gid AND `linktable`.`schID`=$sid;";
 		$result = mysql_query($sql);
 		$rowcount = mysql_numrows($result);
 		if($rowcount<1)return 0;
@@ -174,7 +174,7 @@ function getGridsBySchedule($schId) {
 	// TODO
 	$con = connectToDb();
 	if ($con) {
-		$sql="SELECT * FROM `gtisgood`.`grid`, `gtisgood`.`linktable` WHERE `grid`.`gridID`=`linktable`.`gridID` AND `linktable`.`schID`=$schId;";
+		$sql="SELECT * FROM `CONTRIB_droptables`.`grid`, `CONTRIB_droptables`.`linktable` WHERE `grid`.`gridID`=`linktable`.`gridID` AND `linktable`.`schID`=$schId;";
 		$result = mysql_query($sql);
 		$rowcount = mysql_numrows($result);
 		$i=0;
@@ -199,7 +199,7 @@ function updateGrid($grid, $loggedInUserID) {
 	if ($con) {
 	$id= $grid->getId();
 	$data= $grid->data;
-	$sql="UPDATE `gtisgood`.`grid`, `gtisgood`.`linktable` SET `grid`.`data`='$data' WHERE `grid`.`gridID`=$id AND `linktable`.`userID`=$loggedInUserID;";
+	$sql="UPDATE `CONTRIB_droptables`.`grid`, `CONTRIB_droptables`.`linktable` SET `grid`.`data`='$data' WHERE `grid`.`gridID`=$id AND `linktable`.`userID`=$loggedInUserID;";
 	$result=mysql_query($sql);	
 	breakCon($con);
 	}
@@ -208,7 +208,7 @@ function updateGrid($grid, $loggedInUserID) {
 function getEditString($id){
 	$con = connectToDb();
 	if ($con) {
-		$sql="SELECT `data` FROM `gtisgood`.`grid` WHERE `gridID`=$id;";
+		$sql="SELECT `data` FROM `CONTRIB_droptables`.`grid` WHERE `gridID`=$id;";
 		$result = mysql_query($sql);
 		$rowcount = mysql_numrows($result);
 		if($rowcount<1)return 0;
@@ -223,7 +223,7 @@ function getEditString($id){
 function addEditString($editStr,$id){
 	$con = connectToDb();
 	if ($con) {
-		$sql="UPDATE `gtisgood`.`grid` SET `data`='$editStr' WHERE `id`=$id;";
+		$sql="UPDATE `CONTRIB_droptables`.`grid` SET `data`='$editStr' WHERE `id`=$id;";
 		$result = mysql_query($sql);
 		breakCon($con);
 	}
@@ -238,7 +238,7 @@ function createUser($user) {
 		$name = $user->name;
 		$email = $user->email;
 		$password = $user->password;
-		$sql = "INSERT INTO `gtisgood`.`user` (`name`, `email`) VALUES ('$name', '$email');";
+		$sql = "INSERT INTO `CONTRIB_droptables`.`user` (`name`, `email`) VALUES ('$name', '$email');";
 		$result = desql($sql);
 		$id = mysql_insert_id($con);
 		breakCon($con);
@@ -252,7 +252,7 @@ function getUserById($id) {
 	// TODO
 	$con = connectToDb();
 	if ($con) {
-		$sql="SELECT * FROM `gtisgood`.`user` WHERE `userID`=$id;";
+		$sql="SELECT * FROM `CONTRIB_droptables`.`user` WHERE `userID`=$id;";
 		$result = mysql_query($sql);
 		$rowcount = mysql_numrows($result);
 		if($rowcount<1)return 0;
@@ -267,7 +267,7 @@ function getUserByEmail($email) {
 	// TODO
 	$con = connectToDb();
 	if ($con) {
-		$sql="SELECT * FROM `gtisgood`.`user` WHERE `email`='$email';";
+		$sql="SELECT * FROM `CONTRIB_droptables`.`user` WHERE `email`='$email';";
 		$result = mysql_query($sql);
 		$rowcount = mysql_numrows($result);
 		if($rowcount<1)return null;
@@ -282,7 +282,7 @@ function getAllUsers() {
 	// TODO
 	$con = connectToDb();
 	if ($con) {
-		$sql="SELECT * FROM `gtisgood`.`user`;";
+		$sql="SELECT * FROM `CONTRIB_droptables`.`user`;";
 		$result = mysql_query($sql);
 		$rowcount = mysql_numrows($result);
 		$i=0;
@@ -307,7 +307,7 @@ function updateUser($user, $loggedInUserID) {
 	if ($con) {
 	$name=$user->name;
 	$email=$user->email;
-	$sql="UPDATE `gtisgood`.`user` SET `name`='$name', `email`='$email' WHERE `user`.`userID`=$loggedInUserID;";
+	$sql="UPDATE `CONTRIB_droptables`.`user` SET `name`='$name', `email`='$email' WHERE `user`.`userID`=$loggedInUserID;";
 	$result=mysql_query($sql);
 	breakCon($con);
 	}
