@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<widget title="GT [W]hen [A]nd [W]here" security='protected'>
+	<library name="jquery" />
+	<library name="jquery.mobile" />
+	<library name="gtmob" />
+	<icon file="images/icon.png" />
+	<css file="GtWAW.css" />
+	<html file="GtWAW.html" />
+	<javascript file="GtWAW.js" />
+	<javascript file="GtWAW_api.js" />
+	<javascript file="jquery.ui.datepicker.js" />
+	<javascript file="jquery.ui.widget.js" />
+	<javascript file="jquery.ui.core.js" />
+</widget>

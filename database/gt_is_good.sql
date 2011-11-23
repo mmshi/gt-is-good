@@ -2,11 +2,10 @@ CREATE DATABASE `gtisgood`;
 
 CREATE TABLE `gtisgood`.`user`
 (
-  `userID` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR( 255 ) ,
-  `email` VARCHAR( 255 ) ,
-  PRIMARY KEY (  `userID` ),
-  INDEX (`email`)
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR( 255 ) ,
+  PRIMARY KEY (  `id` ),
+  INDEX (`username`)
 );
 
 CREATE TABLE  `gtisgood`.`schedule` (

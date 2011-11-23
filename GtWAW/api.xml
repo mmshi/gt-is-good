@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<api>
+	<description>
+	<![CDATA[     TODO Comments Here   ]]>
+	</description>
+
+	<command id='WAWfrontDoor' security='protected'>
+		<description>
+			<![CDATA[     TODO Comments Here   ]]>
+		</description>
+
+		<get>
+			<description>
+				<![CDATA[	TODO	]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[p_getSchedulesForUser($_REST['WAWfrontDoor']);]]>
+			</action>
+		</get>
+
+	</command>
+	
+	<command id='WAWeditString' security='protected'>
+		<description>
+			<![CDATA[     TODO Comments Here   ]]>
+		</description>
+
+		<get>
+			<description>
+				<![CDATA[	You should pass the id' formatted as "gridID-schID" or "#_#".	]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[p_getEditStringById($_REST['WAWeditString']);]]>
+			</action>
+		</get>
+
+		<post>
+			<description>
+				<![CDATA[	TODO	]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[p_addEditString($_POST['userID'], $_POST['schID'], 
+						$_POST['editStr'], $_POST['alias']);]]>
+			</action>
+		</post>
+
+		<put>
+			<description>
+				<![CDATA[	TODO	]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[p_updateEditString($_REST['gridID'], $_POST['userID'], 
+						$_POST['editStr'], $_POST['alias']);]]>
+			</action>
+		</put>
+
+	</command>
+
+	<command id='WAWresultsTable' security='protected'>
+		<description>
+			<![CDATA[     TODO Comments Here   ]]>
+		</description>
+
+		<get>
+			<description>
+				<![CDATA[	TODO	]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[p_getResultsTable($_REST['WAWresultsTable']);]]>
+			</action>
+		</get>
+
+		<post>
+			<description>
+				<![CDATA[	Seperate user id's with commas.	]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[p_getIncompleteResultsTable($_REST['WAWresultsTable'], 
+						$_POST['includedUsers']);]]>
+			</action>
+		</post>
+
+	</command>
+
+	<command id='WAWschedule' security='protected'>
+		<description>
+			<![CDATA[     TODO Comments Here   ]]>
+		</description>
+
+		<get>
+			<description>
+				<![CDATA[	TODO	]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[p_getScheduleById($_REST['WAWschedule']);]]>
+			</action>
+		</get>
+
+		<post>
+			<description>
+				<![CDATA[	TODO	]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[p_addSchedule($_POST['userID'], 
+					$_POST['editStr'], $_POST['alias']);]]>
+			</action>
+		</post>
+
+		<put>
+			<description>
+				<![CDATA[	TODO	]]>
+			</description>
+			<action file='GtWAWpublic.php'>
+				<![CDATA[p_getScheduleByAlias($_POST['alias']);]]>
+			</action>
+		</put>
+
+	</command>
+
+</api>
