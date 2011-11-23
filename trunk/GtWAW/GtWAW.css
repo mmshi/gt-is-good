@@ -1,0 +1,120 @@
+@import "jquery.ui.base.css";
+@import "jquery.ui.theme.css";
+
+/* CSS Document */
+body{
+	
+	orientation = "landscape";
+}
+/*defining classes of text*/
+.dateHeader {
+    font-weight: bold;
+    text-align: center;
+}
+
+.dateText {
+    font-size: 18px;
+    /* margin-top: 6px; */
+}
+
+		.dayText{
+			font-size: 14px;
+		}
+
+
+d{
+    font-size: 18px;	
+}	
+
+.scrollBox{
+	overflow: auto; 
+	width: 557px; 
+	height: 300px; 
+    /*
+	border-left: 1px gray solid;
+	border-bottom: 1px gray solid; 
+    padding:0px; 
+	margin: 0px
+	*/
+}
+
+.t, .A, .G, .B, .H {
+    font-size: 14px;
+	text-align: center;	
+}
+	.A{
+		/* AWESOME day and time */		
+		/* background: #CCFF00; */
+		background-color:rgb(0,255,0);
+		color: black;
+	}	
+	.G{
+		/* GOOD day and time */		
+		/* background: #CCFF00; */
+		background:rgb(204,255,0);
+		color: black;
+	}	
+	.B{
+		/* BAD day and time */		
+		/* background: #CCFF00; */
+		background:rgb(255,128,0);
+	}	
+	.H{
+		/* HORRIBLE day and time */		
+		/* background: #CCFF00; */
+		background:rgb(255,0,0);	
+	}
+
+
+/*
+td
+{
+	background-color:rgb(200,200,200);
+}
+*/
+
+.weekdayColor {
+	background-color:rgb(220,220,220);
+}
+
+.weekendColor {
+	background-color:rgb(200,200,200);
+}
+
+.hidden {
+    display:none;   
+}
+
+body {
+    font-family:sans-serif;
+}
+
+#bounds {
+    margin:4px;
+    background-color:#EFEFEF;
+    border-radius:4px;
+    border:1px solid #D0D0D0;
+    overflow:auto;
+    float:left;
+}
+
+#bounds label {
+    float:left;
+    width:5.0em;
+}
+
+#bounds label span {
+    text-align:center
+    padding:3px 0px;
+    display:block;
+}
+
+#bounds label input {
+    position:absolute;
+    top:-20px;
+}
+
+#bounds input:checked + span {
+    background-color:#404040;
+    color:#F7F7F7;
+}
