@@ -1,0 +1,1 @@
+We are cloning WhenIsGood.net for Georgia Tech students with an emphasis on mobile browsers.
